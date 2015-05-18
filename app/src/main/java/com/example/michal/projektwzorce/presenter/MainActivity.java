@@ -2,6 +2,7 @@ package com.example.michal.projektwzorce.presenter;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+//cc
 import android.util.Log;
 import com.example.michal.projektwzorce.R;
 public class MainActivity extends Activity
