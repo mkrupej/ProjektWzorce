@@ -11,9 +11,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageCameraChoice"
         android:layout_alignParentStart="true"
-        android:src="@drawable/cameraChoice"
+        android:src="@drawable/camerachoice"
         android:clickable="true"
-        android:onClick=""/>
+        android:paddingRight="200dp"
+        android:paddingBottom="200dp" />
 
     <ImageView
         android:layout_below="@+id/imageCameraChoice"
@@ -22,7 +23,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageGalleryChoice"
         android:layout_alignParentBottom="true"
-        android:src="@drawable/galleryChoice"
-        android:clickable="true"/>
+        android:src="@drawable/gallerychoice"
+        android:clickable="true"
+        android:paddingLeft="200dp"
+        android:paddingTop="200dp"
+        android:cropToPadding="false"
+        android:adjustViewBounds="false" />
 
 </RelativeLayout>
