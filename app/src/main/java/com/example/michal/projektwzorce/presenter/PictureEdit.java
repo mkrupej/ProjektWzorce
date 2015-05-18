@@ -85,7 +85,7 @@ public class PictureEdit extends Activity
     }
     public void home()
     {
-        Intent back = new Intent(PictureEdit.this,MainActivity.class);
+        Intent back = new Intent(PictureEdit.this,ChoiceActivity.class);
         PictureEdit.this.startActivity(back);
     }
     public void facebook()
