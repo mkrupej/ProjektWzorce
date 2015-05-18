@@ -8,9 +8,13 @@ import android.widget.Toast;
 import android.view.MenuItem;
 
 import com.example.michal.projektwzorce.R;
+import com.example.michal.projektwzorce.model.Photography;
 
 public class PictureEdit extends Activity
 {
+
+    private static Photography photo =  Photography.getInstance();
+
     ImageView Picture;
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -18,6 +22,9 @@ public class PictureEdit extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_picture_edit);
         Picture=(ImageView)findViewById(R.id.Pic);
+
+        Picture.setImageBitmap(photo.getPhoto());
+            //Picture.setImageURI(photo.getPath());
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
