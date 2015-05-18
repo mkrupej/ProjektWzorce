@@ -3,21 +3,18 @@ package com.example.michal.projektwzorce.presenter;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.view.MenuItem;
 
+
+
 import com.example.michal.projektwzorce.R;
 import com.example.michal.projektwzorce.model.Photography;
-
-import java.io.File;
-
-import static android.graphics.BitmapFactory.decodeFile;
 
 public class PictureEdit extends Activity
 {
@@ -27,18 +24,13 @@ public class PictureEdit extends Activity
     ImageView Picture;
     TextView Tekst;
     @Override
-
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_picture_edit);
         Picture=(ImageView)findViewById(R.id.Pic);
         Tekst=(TextView)findViewById(R.id.Text);
-
-        if(Photography.getInstance().getPhoto()!= null) {
-            Picture.setImageBitmap(Photography.getInstance().getPhoto());
-        }
-
+         Picture.setImageBitmap(Photography.getInstance().getPhoto());
 
 
     }
@@ -101,7 +93,7 @@ public class PictureEdit extends Activity
     }
     public void facebook()
     {
-        Toast.makeText(this, "Android Option Selexted", Toast.LENGTH_SHORT).show();
+
     }
 }
 
