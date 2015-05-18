@@ -3,7 +3,7 @@
     tools:context="com.example.michal.projektwzorce.presenter.PictureEdit">
     <item
 
-    android:id="@+id/action_settings"
+    android:id="@+id/opcje"
     android:orderInCategory="100"
     android:showAsAction="always"
     android:icon="@drawable/seekbar"
@@ -45,7 +45,7 @@
 
     <item
         android:id="@+id/sms"
-        android:icon="@drawable/mail"
+        android:icon="@drawable/sms"
         android:orderInCategory="4"
         android:showAsAction="always"
         android:title="Sms"/>
