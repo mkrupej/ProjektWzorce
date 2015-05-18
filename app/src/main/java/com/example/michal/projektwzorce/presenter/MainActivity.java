@@ -1,28 +1,21 @@
 package com.example.michal.projektwzorce.presenter;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-
 import com.example.michal.projektwzorce.R;
-
-
-public class MainActivity extends Activity
-{
-    // Splash screen timer
-    private static int SPLASH_TIME_OUT = 3000;
+public class MainActivity extends Activity {
+    private static int SPLASH_TIME_OUT = 3000; //3 sekundy
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        new Handler().postDelayed(new Runnable() {
-
-
+      /*  new Handler().postDelayed(new Runnable()
+        {
             @Override
-            public void run() {
+            public void run()
+            {
                 Intent i = new Intent(MainActivity.this, ChoiceActivity.class);
                 startActivity(i);
 
@@ -31,7 +24,8 @@ public class MainActivity extends Activity
             }
         }, SPLASH_TIME_OUT);
     }
-
+    */
+    }
 }
 
 
