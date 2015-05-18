@@ -3,6 +3,7 @@ package com.example.michal.projektwzorce.presenter;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.widget.ImageView;
 import android.widget.Toast;
 import android.view.MenuItem;
 
@@ -10,13 +11,13 @@ import com.example.michal.projektwzorce.R;
 
 public class PictureEdit extends Activity
 {
-
+    ImageView Picture;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_picture_edit);
-
+        Picture=(ImageView)findViewById(R.id.Pic);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
