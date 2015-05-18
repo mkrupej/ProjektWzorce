@@ -2,29 +2,35 @@ package com.example.michal.projektwzorce.presenter;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
+import android.util.Log;
 import com.example.michal.projektwzorce.R;
 public class MainActivity extends Activity
 {
-    private static int SPLASH_TIME_OUT = 3000; //3 sekundy
+    private static int CZAS = 2000; //3 sekundy
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       /* new Handler().postDelayed(new Runnable()
-        {
-            @Override
-            public void run()
-            {
-                Intent i = new Intent(MainActivity.this, ChoiceActivity.class);
-                startActivity(i);
+        // Uruchom w¹tek otwieraj¹cy g³ówn¹ aktywnoœæ
+        ActivityStarter starter = new ActivityStarter();
+        starter.start();
+    }
 
-                // close this activity
-                finish();
+    private class ActivityStarter extends Thread {
+
+        @Override
+        public void run() {
+            try {
+                Thread.sleep(CZAS);
+            } catch (Exception e) {
+                Log.e("SplashScreen", e.getMessage());
             }
-        }, SPLASH_TIME_OUT);
-    } */
-}}
+            Intent intent = new Intent(MainActivity.this, ChoiceActivity.class);
+            MainActivity.this.startActivity(intent);
+            MainActivity.this.finish();
+        }
+    }
+}
 
 
