@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,6 +14,8 @@ import android.widget.ImageView;
 
 import com.example.michal.projektwzorce.R;
 import com.example.michal.projektwzorce.model.Photography;
+
+import java.io.IOException;
 
 import static com.example.michal.projektwzorce.model.Photography.*;
 
@@ -58,14 +61,17 @@ public class ChoiceActivity extends Activity {
             if (requestCode == FROM_GALLERY) {
                 Uri selectedImageUri = data.getData();
                 photo.setPath(getPath(selectedImageUri));
-               // System.out.println("Image Path : " + photo.getPath());
-                /*img.setImageURI(selectedImageUri);
-                BitmapDrawable drawable = (BitmapDrawable) img.getDrawable();
-                Funkcje.oryginal = drawable.getBitmap();*/
-
+                try {
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImageUri);
+                    Photography.getInstance().setPhoto(bitmap);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
             if (requestCode == TAKE_PICTURE) {
+
+
                 Bitmap photo2 = (Bitmap)data.getExtras().get("data");
                 Photography.getInstance().setPhoto(photo2);
             }
