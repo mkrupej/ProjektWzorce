@@ -36,11 +36,25 @@
     android:showAsAction="always"
     android:title="Home"/>
 
+    <item
+        android:id="@+id/mail"
+        android:icon="@drawable/mail"
+        android:orderInCategory="3"
+        android:showAsAction="always"
+        android:title="Mail"/>
+
+    <item
+        android:id="@+id/sms"
+        android:icon="@drawable/mail"
+        android:orderInCategory="4"
+        android:showAsAction="always"
+        android:title="Sms"/>
+
 
     <item
     android:id="@+id/facebook"
     android:icon="@drawable/facebook"
     android:orderInCategory="2"
     android:showAsAction="always"
-    android:title="Android"/>
+    android:title="Facebook"/>
 </menu>

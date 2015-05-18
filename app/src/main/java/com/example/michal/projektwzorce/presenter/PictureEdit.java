@@ -2,13 +2,16 @@ package com.example.michal.projektwzorce.presenter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.view.MenuItem;
+
+
 
 import com.example.michal.projektwzorce.R;
 import com.example.michal.projektwzorce.model.Photography;
@@ -90,7 +93,7 @@ public class PictureEdit extends Activity
     }
     public void facebook()
     {
-        Toast.makeText(this, "Android Option Selexted", Toast.LENGTH_SHORT).show();
+
     }
 }
 
