@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.view.MenuItem;
 
@@ -16,15 +17,25 @@ public class PictureEdit extends Activity
     private static Photography photo =  Photography.getInstance();
 
     ImageView Picture;
+    TextView Tekst;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_picture_edit);
         Picture=(ImageView)findViewById(R.id.Pic);
+        Tekst=(TextView)findViewById(R.id.Text);
 
         Picture.setImageBitmap(photo.getPhoto());
             //Picture.setImageURI(photo.getPath());
+
+
+
+
+
+
+
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu)

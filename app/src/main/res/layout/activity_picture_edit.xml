@@ -8,9 +8,15 @@
     android:orientation="vertical">
 
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Text"
+        android:hint="tutaj daj tekst"/>
+
     <ImageView
 
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="486dp"
         android:id="@+id/Pic" />
 </LinearLayout>
