@@ -13,7 +13,6 @@ public class MainActivity extends Activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Uruchom w¹tek otwieraj¹cy g³ówn¹ aktywnoœæ
         ActivityStarter starter = new ActivityStarter();
         starter.start();
     }
@@ -21,7 +20,8 @@ public class MainActivity extends Activity
     private class ActivityStarter extends Thread {
 
         @Override
-        public void run() {
+        public void run()
+        {
             try {
                 Thread.sleep(CZAS);
             } catch (Exception e) {
