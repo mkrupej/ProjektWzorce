@@ -67,7 +67,7 @@ public class ChoiceActivity extends Activity {
 
             if (requestCode == TAKE_PICTURE) {
                 Bitmap photo2 = (Bitmap)data.getExtras().get("data");
-                photo.setPhoto(photo2);
+                Photography.getInstance().setPhoto(photo2);
             }
 
             //Funkcje.przywrocona=Funkcje.oryginal;

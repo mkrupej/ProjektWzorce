@@ -2,6 +2,7 @@ package com.example.michal.projektwzorce.presenter;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,7 +15,7 @@ import com.example.michal.projektwzorce.model.Photography;
 public class PictureEdit extends Activity
 {
 
-    private static Photography photo =  Photography.getInstance();
+   // private static Photography photo =  Photography.getInstance();
 
     ImageView Picture;
     TextView Tekst;
@@ -25,12 +26,11 @@ public class PictureEdit extends Activity
         setContentView(R.layout.activity_picture_edit);
         Picture=(ImageView)findViewById(R.id.Pic);
         Tekst=(TextView)findViewById(R.id.Text);
-
-        Picture.setImageBitmap(photo.getPhoto());
+            Picture.setImageBitmap(Photography.getInstance().Picture);
+        if (Photography.getInstance().Picture == null)
+            Tekst.setText("WIELKI KUTAS");
+     //   Picture.setImageBitmap(photo.getPhoto());
             //Picture.setImageURI(photo.getPath());
-
-
-
 
 
 
