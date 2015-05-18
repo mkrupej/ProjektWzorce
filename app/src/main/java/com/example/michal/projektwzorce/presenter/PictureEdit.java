@@ -1,6 +1,7 @@
 package com.example.michal.projektwzorce.presenter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.Menu;
@@ -51,31 +52,31 @@ public class PictureEdit extends Activity
 
             case R.id.seekbar1:
 
-                homeActivity();
+                settings();
 
                 return true;
 
             case R.id.seekbar2:
 
-                homeActivity();
+                settings();
 
                 return true;
 
             case R.id.przyciecie:
 
-                homeActivity();
+                settings();
 
                 return true;
 
             case R.id.home:
 
-                javaActivity();
+                home();
 
                 return true;
 
             case R.id.facebook:
 
-                androidActivity();
+                facebook();
 
                 return true;
 
@@ -85,15 +86,16 @@ public class PictureEdit extends Activity
 
         }
     }
-    public void homeActivity()
+    public void settings()
     {
         Toast.makeText(this, "Home Option Selexted", Toast.LENGTH_SHORT).show();
     }
-    public void javaActivity()
+    public void home()
     {
-        Toast.makeText(this, "Java Option Selexted", Toast.LENGTH_SHORT).show();
+        Intent back = new Intent(PictureEdit.this,MainActivity.class);
+        PictureEdit.this.startActivity(back);
     }
-    public void androidActivity()
+    public void facebook()
     {
         Toast.makeText(this, "Android Option Selexted", Toast.LENGTH_SHORT).show();
     }

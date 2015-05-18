@@ -21,8 +21,7 @@
             android:label="@string/title_activity_choice" >
         </activity>
         <activity
-            android:name=".presenter.PictureEdit"
-            android:label="@string/title_activity_picture_edit" >
+            android:name=".presenter.PictureEdit">
         </activity>
     </application>
 
