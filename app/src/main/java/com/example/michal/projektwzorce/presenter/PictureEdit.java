@@ -27,14 +27,7 @@ public class PictureEdit extends Activity
         setContentView(R.layout.activity_picture_edit);
         Picture=(ImageView)findViewById(R.id.Pic);
         Tekst=(TextView)findViewById(R.id.Text);
-            Picture.setImageBitmap(Photography.getInstance().Picture);
-        if (Photography.getInstance().Picture == null)
-            Tekst.setText("WIELKI KUTAS");
-     //   Picture.setImageBitmap(photo.getPhoto());
-            //Picture.setImageURI(photo.getPath());
-
-
-
+         Picture.setImageBitmap(Photography.getInstance().getPhoto());
 
 
     }
