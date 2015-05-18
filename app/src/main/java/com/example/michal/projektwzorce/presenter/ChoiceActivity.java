@@ -58,7 +58,7 @@ public class ChoiceActivity extends Activity {
             if (requestCode == FROM_GALLERY) {
                 Uri selectedImageUri = data.getData();
                 photo.setPath(getPath(selectedImageUri));
-                System.out.println("Image Path : " + photo.getPath());
+               // System.out.println("Image Path : " + photo.getPath());
                 /*img.setImageURI(selectedImageUri);
                 BitmapDrawable drawable = (BitmapDrawable) img.getDrawable();
                 Funkcje.oryginal = drawable.getBitmap();*/
