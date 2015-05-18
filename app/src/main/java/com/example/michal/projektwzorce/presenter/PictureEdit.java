@@ -28,6 +28,7 @@ public class PictureEdit extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_picture_edit);
+        getActionBar().setDisplayShowTitleEnabled(false);
         Picture=(ImageView)findViewById(R.id.Pic);
         Tekst=(TextView)findViewById(R.id.Text);
          Picture.setImageBitmap(Photography.getInstance().getPhoto());
