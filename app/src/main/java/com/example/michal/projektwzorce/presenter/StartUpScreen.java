@@ -1,4 +1,4 @@
-package com.example.michal.projektwzorce;
+package com.example.michal.projektwzorce.presenter;
 
 /**
  * Created by Krzysztof on 2015-05-18.

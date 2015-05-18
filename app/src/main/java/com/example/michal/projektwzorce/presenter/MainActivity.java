@@ -1,9 +1,11 @@
-package com.example.michal.projektwzorce;
+package com.example.michal.projektwzorce.presenter;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.example.michal.projektwzorce.R;
 
 
 public class MainActivity extends Activity {
