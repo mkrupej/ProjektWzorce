@@ -6,7 +6,23 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.michal.projektwzorce.presenter.ChoiceActivity">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageCameraChoice"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/cameraChoice"
+        android:clickable="true"
+        android:onClick=""/>
+
+    <ImageView
+        android:layout_below="@+id/imageCameraChoice"
+        android:layout_toRightOf="@+id/imageCameraChoice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageGalleryChoice"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/galleryChoice"
+        android:clickable="true"/>
 
 </RelativeLayout>
