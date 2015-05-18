@@ -5,5 +5,5 @@ package com.example.michal.projektwzorce.presenter;
  */
 public class StartUpScreen {
     //gagaadfdssdsdf
-    //22
+    //22cc
 }
