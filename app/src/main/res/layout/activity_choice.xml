@@ -8,39 +8,34 @@
 <!-- -->
 
 
-
-    <LinearLayout
-        android:orientation="horizontal"
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="106dp">
+        android:id="@+id/imageGalleryChoice"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/gallery"
+        android:clickable="true"
+        android:paddingLeft="200dp"
+        android:paddingTop="200dp"
+        android:cropToPadding="false"
+        android:adjustViewBounds="false" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/imageCameraChoice"
+        android:layout_alignParentStart="false"
+        android:src="@drawable/camera"
+        android:clickable="true"
+        android:paddingRight="200dp"
+        android:paddingBottom="200dp" />
+
 
 <!-- -->
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageCameraChoice"
-            android:layout_alignParentStart="false"
-            android:src="@drawable/camera"
-            android:clickable="true"
-            android:paddingRight="200dp"
-            android:paddingBottom="200dp" />
 
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageGalleryChoice"
-            android:layout_alignParentBottom="true"
-            android:src="@drawable/gallery"
-            android:clickable="true"
-            android:paddingLeft="200dp"
-            android:paddingTop="200dp"
-            android:cropToPadding="false"
-            android:adjustViewBounds="false" />
 
 
-    </LinearLayout>
+
 
 </RelativeLayout>

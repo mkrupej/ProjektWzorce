@@ -5,8 +5,8 @@
 
     android:id="@+id/action_settings"
     android:orderInCategory="100"
-    android:showAsAction="never"
-        android:icon="@drawable/seekbar"
+    android:showAsAction="always"
+    android:icon="@drawable/seekbar"
     android:title="@string/action_settings" >
 
         <item
