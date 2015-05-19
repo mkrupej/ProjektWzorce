@@ -122,10 +122,10 @@ public class PictureEdit extends Activity  {
 
             case R.id.przyciecie:
 
-                Intent cropIntent = new Intent("com.android.camera.action.CROP");
-                startActivityForResult(cropIntent, PICK_CROP);
-
-                return true;
+                //Intent cropIntent = new Intent("com.android.camera.action.CROP");
+                //startActivityForResult(cropIntent, PICK_CROP);
+                przcinanko();
+               // return true;
 
             case R.id.home:
 
@@ -160,6 +160,10 @@ public class PictureEdit extends Activity  {
 
     }
 
+    public void przcinanko()
+    {
+        Intent cropIntent = new Intent("com.android.camera.action.CROP");
+    }
 
 
 
