@@ -8,6 +8,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.ContactsContract;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -82,6 +84,7 @@ public class PictureEdit extends Activity  {
 
                 Zapis.zapis();
                 Toast.makeText(getApplicationContext(),"zapisano kurwo", Toast.LENGTH_LONG).show();
+                MediaStore.Images.Media.insertImage(getContentResolver(), Photography.getInstance().getPhoto(), "moje foto", "zapis");
 
                 return true;
 
@@ -123,6 +126,7 @@ public class PictureEdit extends Activity  {
         share();
 
     }
+
 
 
 
