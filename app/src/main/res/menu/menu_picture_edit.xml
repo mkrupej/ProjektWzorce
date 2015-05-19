@@ -15,6 +15,7 @@
             android:showAsAction="never"
             android:title="@string/app_name"
             />
+
         <item
             android:id="@+id/seekbar2"
             android:orderInCategory="102"

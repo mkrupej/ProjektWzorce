@@ -1,5 +1,6 @@
 package com.example.michal.projektwzorce.presenter;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -16,7 +17,9 @@ import android.view.MenuItem;
 import com.example.michal.projektwzorce.R;
 import com.example.michal.projektwzorce.model.Photography;
 
-public class PictureEdit extends Activity
+import java.util.ArrayList;
+
+public class PictureEdit extends Activity implements ActionBar.OnNavigationListener
 {
 
    // private static Photography photo =  Photography.getInstance();
@@ -30,6 +33,17 @@ public class PictureEdit extends Activity
         getActionBar().setDisplayShowTitleEnabled(false);
         Picture=(ImageView)findViewById(R.id.Pic);
          Picture.setImageBitmap(Photography.getInstance().getPhoto());
+
+
+
+
+
+
+
+        ActionBar bar = getActionBar();
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("Kontrast");
+        list.add("Jasnoœæ");
 
 
     }
@@ -93,6 +107,11 @@ public class PictureEdit extends Activity
     public void facebook()
     {
 
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(int itemPosition, long itemId) {
+        return false;
     }
 }
 
