@@ -1,5 +1,6 @@
 package com.example.michal.projektwzorce.controller;
 
+import android.content.ContentResolver;
 import android.graphics.Bitmap;
 import android.graphics.Picture;
 import android.graphics.drawable.BitmapDrawable;
@@ -21,11 +22,9 @@ public final class Zapis
 {
     public static void zapis()
     {
-
-
         Bitmap bitmap2 = Photography.getInstance().getPhoto();
-
-        FileOutputStream out = null;
+        MediaStore.Images.Media.insertImage(getContentResolver(), bitmap2, "moje foto" , "zapis");
+     /*   FileOutputStream out = null;
         try {
             out = new FileOutputStream("nazwa");
             bitmap2.compress(Bitmap.CompressFormat.PNG, 100, out); // bmp is your Bitmap instance
@@ -39,10 +38,11 @@ public final class Zapis
                 }
             } catch (IOException e) {
                 e.printStackTrace();
-
             }
-        }
+        } */
 
 
     }
+
+
 }
