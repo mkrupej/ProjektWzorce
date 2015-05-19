@@ -37,6 +37,8 @@ public class PictureEdit extends Activity implements ActionBar.OnNavigationListe
          Picture.setImageBitmap(Photography.getInstance().getPhoto());
 
 
+
+
         ImageButton czarnoBialy;
         ImageButton Sepia;
         ImageButton Negatyw;
@@ -59,7 +61,6 @@ public class PictureEdit extends Activity implements ActionBar.OnNavigationListe
         list.add("Kontrast");
         list.add("Jasnoœæ");
 
-/////
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -120,12 +121,25 @@ public class PictureEdit extends Activity implements ActionBar.OnNavigationListe
     }
     public void facebook()
     {
-
+        share();
     }
 
     @Override
     public boolean onNavigationItemSelected(int itemPosition, long itemId) {
         return false;
     }
+
+
+    public void share()
+    {
+        String message = "Text I want to share.";
+        Intent share = new Intent(Intent.ACTION_SEND);
+        share.setType("text/plain");
+        share.putExtra(Intent.EXTRA_TEXT, message);
+
+        startActivity(Intent.createChooser(share, "Title of the dialog the system will open"));
+    }
 }
+
+
 
