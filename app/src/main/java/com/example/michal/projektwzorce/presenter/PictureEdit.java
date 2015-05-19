@@ -81,6 +81,7 @@ public class PictureEdit extends Activity  {
             case R.id.zapis:
 
                 Zapis.zapis();
+                Toast.makeText(getApplicationContext(),"zapisano kurwo", Toast.LENGTH_LONG).show();
 
                 return true;
 

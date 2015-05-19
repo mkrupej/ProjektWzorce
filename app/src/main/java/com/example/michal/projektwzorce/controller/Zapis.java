@@ -39,6 +39,7 @@ public final class Zapis
                 }
             } catch (IOException e) {
                 e.printStackTrace();
+
             }
         }
 
