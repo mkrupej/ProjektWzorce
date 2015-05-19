@@ -20,8 +20,11 @@
             android:name=".presenter.ChoiceActivity"
             android:label="@string/title_activity_choice" >
         </activity>
+        <activity android:name=".presenter.PictureEdit" >
+        </activity>
         <activity
-            android:name=".presenter.PictureEdit">
+            android:name=".presenter.Zoom"
+            android:label="@string/title_activity_zoom" >
         </activity>
     </application>
 

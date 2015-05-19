@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
 
 
 import com.example.michal.projektwzorce.R;
@@ -35,7 +36,7 @@ public class PictureEdit extends Activity  {
     // private static Photography photo =  Photography.getInstance();
 
     ImageView Picture;
-public final int PICK_CROP=1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +44,14 @@ public final int PICK_CROP=1;
         getActionBar().setDisplayShowTitleEnabled(false);
         Picture = (ImageView) findViewById(R.id.Pic);
         Picture.setImageBitmap(Photography.getInstance().getPhoto());
+
+
+        Picture.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                Intent intent = new Intent(PictureEdit.this, Zoom.class);
+                startActivity(intent);
+            }});
 
 
         ImageButton czarnoBialy;
@@ -61,6 +70,7 @@ public final int PICK_CROP=1;
         list.add("Kontrast");
         list.add("Jasnoœæ");
 
+    }
 
 }
 

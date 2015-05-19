@@ -23,7 +23,7 @@ public final class Zapis
     public static void zapis()
     {
         Bitmap bitmap2 = Photography.getInstance().getPhoto();
-
+      //  MediaStore.Images.Media.insertImage(getContentResolver(), bitmap2, "moje foto" , "zapis");
      /*   FileOutputStream out = null;
         try {
             out = new FileOutputStream("nazwa");
