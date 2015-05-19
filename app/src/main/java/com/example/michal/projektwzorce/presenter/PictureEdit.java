@@ -11,6 +11,7 @@ import android.os.Environment;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.view.Menu;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -36,7 +37,7 @@ public class PictureEdit extends Activity  {
     // private static Photography photo =  Photography.getInstance();
 
     ImageView Picture;
-
+    final int PICK_CROP = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,8 +72,7 @@ public class PictureEdit extends Activity  {
         list.add("Jasnoœæ");
 
     }
-
-}
+    
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
