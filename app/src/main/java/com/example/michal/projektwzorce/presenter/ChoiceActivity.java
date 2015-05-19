@@ -35,8 +35,7 @@ public class ChoiceActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choice);
-
-        getActionBar().setDisplayShowTitleEnabled(false);
+        getActionBar().hide();
 
         takePicture = (ImageView)findViewById(R.id.imageCameraChoice);
 

@@ -15,7 +15,7 @@ public class MainActivity extends Activity
         setContentView(R.layout.activity_main);
         ActivityStarter starter = new ActivityStarter();
 
-        getActionBar().setDisplayShowTitleEnabled(false);
+        getActionBar().hide();
         starter.start();
     }
 

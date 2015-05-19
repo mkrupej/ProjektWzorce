@@ -22,7 +22,6 @@ public class PictureEdit extends Activity
    // private static Photography photo =  Photography.getInstance();
 
     ImageView Picture;
-    TextView Tekst;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -30,7 +29,6 @@ public class PictureEdit extends Activity
         setContentView(R.layout.activity_picture_edit);
         getActionBar().setDisplayShowTitleEnabled(false);
         Picture=(ImageView)findViewById(R.id.Pic);
-        Tekst=(TextView)findViewById(R.id.Text);
          Picture.setImageBitmap(Photography.getInstance().getPhoto());
 
 

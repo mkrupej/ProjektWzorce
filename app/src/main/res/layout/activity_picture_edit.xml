@@ -18,6 +18,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/seekbar1"/>
-//kurwa
+
+
+    <ImageButton
+        android:layout_toRightOf="@id/imageButtonFilter3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButtonBlackWhite" />
+
+        <ImageButton
+            android:layout_toRightOf="@id/imageButtonBlackWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButtonSepia" />
+
+        <ImageButton
+            android:layout_toRightOf="@id/imageButtonSepia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButtonFilter3" />
+
+        <ImageButton
+            android:layout_toRightOf="@id/imageButtonFilter3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButtonFilter4" />
+
+
+
+
 
 </LinearLayout>
