@@ -2,46 +2,29 @@ package com.example.michal.projektwzorce.presenter;
 
 import android.app.ActionBar;
 import android.app.Activity;
-import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.view.MenuItem;
 
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 
 import com.example.michal.projektwzorce.R;
-import com.example.michal.projektwzorce.controller.Crop;
 import com.example.michal.projektwzorce.controller.Zapis;
 import com.example.michal.projektwzorce.model.Photography;
 
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
-import java.util.ArrayList;
 public class PictureEdit extends Activity  {
 
     // private static Photography photo =  Photography.getInstance();
 
     ImageView Picture;
-    public final int PICK_CROP = 10;
-    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,31 +61,6 @@ public class PictureEdit extends Activity  {
     }
 
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == PICK_CROP) {
-            if (data != null) {
-                // get the returned data
-                Bundle extras = data.getExtras();
-                // get the cropped bitmap
-                Bitmap selectedBitmap = extras.getParcelable("data");
-                startActivityForResult(Crop.przytnij(data.getData()), PICK_CROP);
-                Picture.setImageBitmap(selectedBitmap);
-            }
-        }
-    }
-
-    public Uri getImageUri(Context inContext, Bitmap inImage)
-    {
-        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
-        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
-        return Uri.parse(path);
-    }
-
-
         @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_picture_edit, menu);
@@ -131,10 +89,6 @@ public class PictureEdit extends Activity  {
 
             case R.id.przyciecie:
 
-                //Intent cropIntent = new Intent("com.android.camera.action.CROP");
-                //startActivityForResult(cropIntent, PICK_CROP);
-                przcinanko(getImageUri(this.getApplicationContext(),Photography.getInstance().getPhoto()));
-               // return true;
 
             case R.id.home:
 
@@ -169,36 +123,7 @@ public class PictureEdit extends Activity  {
 
     }
 
-    public void przcinanko(Uri picuri)
-    {
 
-
-        try {
-
-            Intent cropIntent = new Intent("com.android.camera.action.CROP");
-            // indicate image type and Uri
-            cropIntent.setDataAndType(picuri, "image/*");
-            // set crop properties
-            cropIntent.putExtra("crop", "true");
-            // indicate aspect of desired crop
-            cropIntent.putExtra("aspectX", 1);
-            cropIntent.putExtra("aspectY", 1);
-            // indicate output X and Y
-            cropIntent.putExtra("outputX", 128);
-            cropIntent.putExtra("outputY", 128);
-            // retrieve data on return
-            cropIntent.putExtra("return-data", true);
-            // start the activity - we handle returning in onActivityResult
-            startActivityForResult(cropIntent, PICK_CROP);
-        }
-        // respond to users whose devices do not support the crop action
-        catch (ActivityNotFoundException anfe) {
-            // display an error message
-            String errorMessage = "Whoops - your device doesn't support the crop action!";
-            Toast toast = Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT);
-            toast.show();
-        }
-    }
 
 
 
