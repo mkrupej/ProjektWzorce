@@ -41,7 +41,7 @@ public class PictureEdit extends Activity  {
 
     ImageView Picture;
     public final int PICK_CROP = 10;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
