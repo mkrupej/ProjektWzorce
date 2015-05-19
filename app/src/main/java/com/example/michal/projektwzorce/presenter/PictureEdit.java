@@ -7,6 +7,8 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,6 +35,18 @@ public class PictureEdit extends Activity implements ActionBar.OnNavigationListe
         getActionBar().setDisplayShowTitleEnabled(false);
         Picture=(ImageView)findViewById(R.id.Pic);
          Picture.setImageBitmap(Photography.getInstance().getPhoto());
+
+
+        ImageButton czarnoBialy;
+        ImageButton Sepia;
+        ImageButton Negatyw;
+        ImageButton Przesycenie;
+
+        czarnoBialy = (ImageButton)findViewById(R.id.imageButtonBlackWhite);
+        Sepia=(ImageButton)findViewById(R.id.imageButtonSepia);
+        Negatyw = (ImageButton)findViewById(R.id.imageButtonFilter3);
+        Przesycenie=(ImageButton)findViewById(R.id.imageButtonFilter4);
+
 
 
 
