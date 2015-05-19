@@ -19,6 +19,7 @@ import android.view.MenuItem;
 
 
 import com.example.michal.projektwzorce.R;
+import com.example.michal.projektwzorce.controller.Zapis;
 import com.example.michal.projektwzorce.model.Photography;
 
 
@@ -79,7 +80,7 @@ public class PictureEdit extends Activity  {
 
             case R.id.zapis:
 
-                zapis();
+                Zapis.zapis();
 
                 return true;
 
@@ -120,27 +121,6 @@ public class PictureEdit extends Activity  {
     public void facebook() {
 
     }
-
-    public void zapis() {
-
-        BitmapDrawable drawable2 = (BitmapDrawable) Picture.getDrawable();
-        Bitmap bitmap2 = drawable2.getBitmap();
-        //Funkcje.ostateczna= bitmap2;
-        String extStorageDirectory = Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_DCIM).toString();
-        OutputStream outStream = null;
-        File file = new File(extStorageDirectory + "/DCIM");
-        try {
-            outStream = new FileOutputStream(file);
-            bitmap2.compress(Bitmap.CompressFormat.PNG, 100, outStream);
-            outStream.flush();
-            outStream.close();
-        } catch (Exception e) {
-        }
-        Toast.makeText(getApplicationContext(), "Zapisano obraz",
-                Toast.LENGTH_LONG).show();
-    }
-
 
 
 
