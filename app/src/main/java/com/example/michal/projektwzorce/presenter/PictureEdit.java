@@ -137,6 +137,8 @@ public class PictureEdit extends Activity  {
             outStream.close();
         } catch (Exception e) {
         }
+        Toast.makeText(getApplicationContext(), "Zapisano obraz",
+                Toast.LENGTH_LONG).show();
     }
 
 
