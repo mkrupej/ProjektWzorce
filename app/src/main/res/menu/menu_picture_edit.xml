@@ -6,7 +6,6 @@
     android:id="@+id/opcje"
     android:orderInCategory="100"
     android:showAsAction="always"
-    android:icon="@drawable/seekbar"
     android:title="@string/action_settings" >
 
         <item
