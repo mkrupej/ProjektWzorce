@@ -90,6 +90,7 @@ public class PictureEdit extends Activity  {
             case R.id.przyciecie:
 
                 Intent cropIntent = new Intent("com.android.camera.action.CROP");
+                startActivity(cropIntent);
 
             case R.id.home:
 
