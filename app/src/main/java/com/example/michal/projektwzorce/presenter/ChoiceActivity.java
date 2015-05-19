@@ -36,6 +36,8 @@ public class ChoiceActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choice);
 
+        getActionBar().setDisplayShowTitleEnabled(false);
+
         takePicture = (ImageView)findViewById(R.id.imageCameraChoice);
 
        takePicture.setOnClickListener(new View.OnClickListener() {

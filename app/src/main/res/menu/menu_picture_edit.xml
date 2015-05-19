@@ -32,7 +32,7 @@
     <item
     android:id="@+id/home"
     android:icon="@drawable/home"
-        android:layout_gravity="start"
+        android:layout_gravity="left"
     android:orderInCategory="1"
     android:showAsAction="always"
     android:title="Home"/>
