@@ -119,13 +119,21 @@ public class PictureEdit extends Activity  {
         PictureEdit.this.startActivity(back);
     }
 
-    public void facebook() {
+    public void facebook(){
+        share();
 
     }
 
 
 
-    public void share(String nazwa) {
+    public void share()
+    {
+        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+        Uri image = Uri.parse(("android.resource://" + getPackageName() + "/" + Photography.getInstance().getPhoto()));
+        sharingIntent.setType("image/png");
+        sharingIntent.putExtra(Intent.EXTRA_STREAM, image);
+        startActivity(Intent.createChooser(sharingIntent, "Share image using"));
+
 
     }
 }
