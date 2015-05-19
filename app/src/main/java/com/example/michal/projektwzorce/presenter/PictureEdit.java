@@ -4,8 +4,10 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.Menu;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -19,24 +21,24 @@ import android.view.MenuItem;
 import com.example.michal.projektwzorce.R;
 import com.example.michal.projektwzorce.model.Photography;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 
-public class PictureEdit extends Activity implements ActionBar.OnNavigationListener
-{
+public class PictureEdit extends Activity  {
 
-   // private static Photography photo =  Photography.getInstance();
+    // private static Photography photo =  Photography.getInstance();
 
     ImageView Picture;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_picture_edit);
         getActionBar().setDisplayShowTitleEnabled(false);
-        Picture=(ImageView)findViewById(R.id.Pic);
-         Picture.setImageBitmap(Photography.getInstance().getPhoto());
-
-
+        Picture = (ImageView) findViewById(R.id.Pic);
+        Picture.setImageBitmap(Photography.getInstance().getPhoto());
 
 
         ImageButton czarnoBialy;
@@ -44,16 +46,10 @@ public class PictureEdit extends Activity implements ActionBar.OnNavigationListe
         ImageButton Negatyw;
         ImageButton Przesycenie;
 
-        czarnoBialy = (ImageButton)findViewById(R.id.imageButtonBlackWhite);
-        Sepia=(ImageButton)findViewById(R.id.imageButtonSepia);
-        Negatyw = (ImageButton)findViewById(R.id.imageButtonFilter3);
-        Przesycenie=(ImageButton)findViewById(R.id.imageButtonFilter4);
-
-
-
-
-
-
+        czarnoBialy = (ImageButton) findViewById(R.id.imageButtonBlackWhite);
+        Sepia = (ImageButton) findViewById(R.id.imageButtonSepia);
+        Negatyw = (ImageButton) findViewById(R.id.imageButtonFilter3);
+        Przesycenie = (ImageButton) findViewById(R.id.imageButtonFilter4);
 
 
         ActionBar bar = getActionBar();
@@ -62,13 +58,14 @@ public class PictureEdit extends Activity implements ActionBar.OnNavigationListe
         list.add("Jasnoœæ");
 
     }
+
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_picture_edit, menu);
         return true;
 
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -80,9 +77,9 @@ public class PictureEdit extends Activity implements ActionBar.OnNavigationListe
 
                 return true;
 
-            case R.id.seekbar2:
+            case R.id.zapis:
 
-                settings();
+                zapis();
 
                 return true;
 
@@ -110,34 +107,54 @@ public class PictureEdit extends Activity implements ActionBar.OnNavigationListe
 
         }
     }
-    public void settings()
-    {
+
+    public void settings() {
         Toast.makeText(this, "Home Option Selexted", Toast.LENGTH_SHORT).show();
     }
-    public void home()
-    {
-        Intent back = new Intent(PictureEdit.this,ChoiceActivity.class);
+
+    public void home() {
+        Intent back = new Intent(PictureEdit.this, ChoiceActivity.class);
         PictureEdit.this.startActivity(back);
     }
-    public void facebook()
-    {
-        share();
+
+    public void facebook() {
+
     }
 
-    @Override
-    public boolean onNavigationItemSelected(int itemPosition, long itemId) {
-        return false;
+    public void zapis() {
+
+        BitmapDrawable drawable2 = (BitmapDrawable) Picture.getDrawable();
+        Bitmap bitmap2 = drawable2.getBitmap();
+        //Funkcje.ostateczna= bitmap2;
+        String extStorageDirectory = Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_DCIM).toString();
+        OutputStream outStream = null;
+        File file = new File(extStorageDirectory + "/Camera");
+        try {
+            outStream = new FileOutputStream(file);
+            bitmap2.compress(Bitmap.CompressFormat.PNG, 100, outStream);
+            outStream.flush();
+            outStream.close();
+        } catch (Exception e) {
+        }
     }
 
 
-    public void share()
-    {
-        String message = "Text I want to share.";
-        Intent share = new Intent(Intent.ACTION_SEND);
-        share.setType("text/plain");
-        share.putExtra(Intent.EXTRA_TEXT, message);
 
-        startActivity(Intent.createChooser(share, "Title of the dialog the system will open"));
+
+    public void share(String nazwa) {
+      /*  BitmapDrawable drawable = (BitmapDrawable) Picture.getDrawable();
+        Bitmap bitmap = drawable.getBitmap();
+        String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
+        OutputStream outStream = null;
+        File file = new File(extStorageDirectory, "MAIL.PNG");
+        try {
+            outStream.flush();
+            outStream.close();
+        }
+        catch(Exception e)
+        {}
+        share("facebook",file.toString()); */
     }
 }
 

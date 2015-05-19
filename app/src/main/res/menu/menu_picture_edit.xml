@@ -17,16 +17,16 @@
             />
 
         <item
-            android:id="@+id/seekbar2"
+            android:id="@+id/zapis"
             android:orderInCategory="102"
             android:showAsAction="never"
-            android:title="@string/app_name"
+            android:title="Zapisz"
             />
         <item
             android:id="@+id/przyciecie"
             android:orderInCategory="103"
             android:showAsAction="never"
-            android:title="@string/app_name"
+            android:title="Przytnij"
             />
     </item>
 
