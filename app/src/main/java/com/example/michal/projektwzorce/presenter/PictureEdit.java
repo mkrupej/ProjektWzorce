@@ -21,6 +21,7 @@ import android.view.MenuItem;
 
 
 import com.example.michal.projektwzorce.R;
+import com.example.michal.projektwzorce.controller.Crop;
 import com.example.michal.projektwzorce.controller.Zapis;
 import com.example.michal.projektwzorce.model.Photography;
 
@@ -34,7 +35,7 @@ public class PictureEdit extends Activity  {
     // private static Photography photo =  Photography.getInstance();
 
     ImageView Picture;
-
+public final int PICK_CROP=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,9 +61,29 @@ public class PictureEdit extends Activity  {
         list.add("Kontrast");
         list.add("Jasnoœæ");
 
-    }
+
+}
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_CROP) {
+            if (data != null) {
+                // get the returned data
+                Bundle extras = data.getExtras();
+                // get the cropped bitmap
+                Bitmap selectedBitmap = extras.getParcelable("data");
+                startActivityForResult(Crop.przytnij(data.getData()), PICK_CROP);
+                Picture.setImageBitmap(selectedBitmap);
+            }
+        }
+    }
+
+
+
+
+        @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_picture_edit, menu);
         return true;
@@ -90,7 +111,8 @@ public class PictureEdit extends Activity  {
 
             case R.id.przyciecie:
 
-                settings();
+                Intent cropIntent = new Intent("com.android.camera.action.CROP");
+                startActivityForResult(cropIntent, PICK_CROP);
 
                 return true;
 
