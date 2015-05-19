@@ -2,6 +2,8 @@ package com.example.michal.projektwzorce.presenter;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -19,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.view.MenuItem;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 
@@ -91,7 +94,13 @@ public class PictureEdit extends Activity  {
         }
     }
 
-
+    public Uri getImageUri(Context inContext, Bitmap inImage)
+    {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
+        return Uri.parse(path);
+    }
 
 
         @Override
@@ -124,7 +133,7 @@ public class PictureEdit extends Activity  {
 
                 //Intent cropIntent = new Intent("com.android.camera.action.CROP");
                 //startActivityForResult(cropIntent, PICK_CROP);
-                przcinanko();
+                przcinanko(getImageUri(this.getApplicationContext(),Photography.getInstance().getPhoto()));
                // return true;
 
             case R.id.home:
@@ -160,9 +169,35 @@ public class PictureEdit extends Activity  {
 
     }
 
-    public void przcinanko()
+    public void przcinanko(Uri picuri)
     {
-        Intent cropIntent = new Intent("com.android.camera.action.CROP");
+
+
+        try {
+
+            Intent cropIntent = new Intent("com.android.camera.action.CROP");
+            // indicate image type and Uri
+            cropIntent.setDataAndType(picuri, "image/*");
+            // set crop properties
+            cropIntent.putExtra("crop", "true");
+            // indicate aspect of desired crop
+            cropIntent.putExtra("aspectX", 1);
+            cropIntent.putExtra("aspectY", 1);
+            // indicate output X and Y
+            cropIntent.putExtra("outputX", 128);
+            cropIntent.putExtra("outputY", 128);
+            // retrieve data on return
+            cropIntent.putExtra("return-data", true);
+            // start the activity - we handle returning in onActivityResult
+            startActivityForResult(cropIntent, PICK_CROP);
+        }
+        // respond to users whose devices do not support the crop action
+        catch (ActivityNotFoundException anfe) {
+            // display an error message
+            String errorMessage = "Whoops - your device doesn't support the crop action!";
+            Toast toast = Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 
 
