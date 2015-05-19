@@ -21,11 +21,11 @@ import android.view.MenuItem;
 import com.example.michal.projektwzorce.R;
 import com.example.michal.projektwzorce.model.Photography;
 
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
-
 public class PictureEdit extends Activity  {
 
     // private static Photography photo =  Photography.getInstance();
@@ -129,7 +129,7 @@ public class PictureEdit extends Activity  {
         String extStorageDirectory = Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_DCIM).toString();
         OutputStream outStream = null;
-        File file = new File(extStorageDirectory + "/Camera");
+        File file = new File(extStorageDirectory + "/DCIM");
         try {
             outStream = new FileOutputStream(file);
             bitmap2.compress(Bitmap.CompressFormat.PNG, 100, outStream);
@@ -143,18 +143,7 @@ public class PictureEdit extends Activity  {
 
 
     public void share(String nazwa) {
-      /*  BitmapDrawable drawable = (BitmapDrawable) Picture.getDrawable();
-        Bitmap bitmap = drawable.getBitmap();
-        String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
-        OutputStream outStream = null;
-        File file = new File(extStorageDirectory, "MAIL.PNG");
-        try {
-            outStream.flush();
-            outStream.close();
-        }
-        catch(Exception e)
-        {}
-        share("facebook",file.toString()); */
+
     }
 }
 
