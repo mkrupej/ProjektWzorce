@@ -45,7 +45,7 @@ public class PictureEdit extends Activity implements ActionBar.OnNavigationListe
         list.add("Kontrast");
         list.add("Jasnoœæ");
 
-
+/////
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
