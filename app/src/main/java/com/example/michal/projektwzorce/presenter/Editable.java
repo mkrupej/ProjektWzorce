@@ -50,7 +50,7 @@ public class Editable extends Activity {
         else {
             Picture.setImageBitmap(Photography.getInstance().getPhoto());
         }
-
+    //chuj w dupe
 
         SeekBar seekBarBrightness = (SeekBar) findViewById(R.id.jasnosc);
         SeekBar seekBarContrast = (SeekBar) findViewById(R.id.Kontrast);
