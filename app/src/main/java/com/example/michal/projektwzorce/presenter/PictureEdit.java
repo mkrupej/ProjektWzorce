@@ -29,6 +29,7 @@ public class PictureEdit extends Activity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_picture_edit);
         getActionBar().setDisplayShowTitleEnabled(false);
         Picture = (ImageView) findViewById(R.id.Pic);

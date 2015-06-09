@@ -11,7 +11,7 @@ public class Photography {
     private String selectedImagePath;
 
     private Bitmap Picture;
-
+    private Bitmap Copy;
     private Photography(){
     }
 
@@ -29,6 +29,7 @@ public class Photography {
     public void setPhoto(Bitmap photo){
 
         Picture = photo;
+        Copy = photo;
 
     }
 
