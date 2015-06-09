@@ -3,6 +3,7 @@ package com.example.michal.projektwzorce.presenter;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
@@ -27,7 +28,15 @@ public class Zoom extends Activity {
         webView = (WebView) findViewById(R.id.webView);
 
         String html="<html><body><img src='{IMAGE_URL}' /></body></html>";
-        Bitmap bitmap = Photography.getInstance().getPhoto();
+        Bitmap bitmap;
+
+          if(Photography.getInstance().getCopy() != null) {
+              bitmap = Photography.getInstance().getCopy();
+             }
+        else {
+              bitmap = Photography.getInstance().getPhoto();
+          }
+
         getActionBar().setTitle("Powieksz zdjecie");
 
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

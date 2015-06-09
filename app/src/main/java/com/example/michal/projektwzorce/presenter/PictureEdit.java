@@ -204,7 +204,6 @@ public class PictureEdit extends Activity  {
         sharingIntent.putExtra(Intent.EXTRA_STREAM, image);
         startActivity(Intent.createChooser(sharingIntent, "Share image using"));
 
-
     }
 }
 
