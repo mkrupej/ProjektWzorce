@@ -14,12 +14,14 @@ public class BlurAlgorithm extends AbstractAlgorithm {
         int radius = 20;
         Bitmap bitmap = sentBitmap.copy(sentBitmap.getConfig(), true);
 
+        getCoop(sentBitmap);
+
         if (radius < 1) {
             return (null);
         }
 
-        int w = bitmap.getWidth();
-        int h = bitmap.getHeight();
+        int w = width;
+        int h = height;
 
         int[] pix = new int[w * h];
         Log.e("pix", w + " " + h + " " + pix.length);
