@@ -55,12 +55,6 @@ public class PictureEdit extends Activity  {
         Przesycenie = (ImageButton) findViewById(R.id.imageButtonFilter4);
 
 
-
-        ActionBar bar = getActionBar();
-        ArrayList<String> list = new ArrayList<String>();
-        list.add("Kontrast");
-        list.add("Jasnosc");
-
     }
 
 
@@ -79,6 +73,8 @@ public class PictureEdit extends Activity  {
             case R.id.seekbar1:
 
                 settings();
+                Intent intent = new Intent(PictureEdit.this, Editable.class);
+                startActivity(intent);
 
                 return true;
 
