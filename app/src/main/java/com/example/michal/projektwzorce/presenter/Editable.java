@@ -36,27 +36,18 @@ public class Editable extends Activity {
         SeekBar seekBarBrightness = (SeekBar) findViewById(R.id.jasnosc);
         seekBarBrightness.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
-            @Override
-            public void onStopTrackingTouch(SeekBar arg0) {
-
-
+            public void onStopTrackingTouch(SeekBar arg0)
+            {
             }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar arg0) {
-
-
+            public void onStartTrackingTouch(SeekBar arg0)
+            {
             }
-
-            @Override
-            public void onProgressChanged(SeekBar arg0, int progress, boolean arg2) {
-
+            public void onProgressChanged(SeekBar arg0, int progress, boolean arg2)
+            {
                 Bitmap newBitMap = doBrightness(Photography.getInstance().getPhoto(), progress);
-
                 Picture.setImageBitmap(newBitMap);
-
             }
-        });
+        });}
 
 
     public static Bitmap doBrightness(Bitmap src, int value) {
@@ -105,7 +96,6 @@ public class Editable extends Activity {
                 bmOut.setPixel(x, y, Color.argb(A, R, G, B));
             }
         }
-
         // return final image
         return bmOut;
     }
