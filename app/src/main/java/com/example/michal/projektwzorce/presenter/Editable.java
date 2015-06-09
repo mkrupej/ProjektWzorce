@@ -26,7 +26,7 @@ import com.example.michal.projektwzorce.model.Photography;
 public class Editable extends Activity {
     ImageView Picture;
     Button Zapisz;
-
+    Bitmap ostateczna;
     protected void onStop(){
         super.onStop();
         if(Photography.getInstance().getCopy() != null)
@@ -44,11 +44,22 @@ public class Editable extends Activity {
         Picture.setImageBitmap(Photography.getInstance().getCopy());
 
 
+
         int brightness;
         SeekBar seekBarBrightness = (SeekBar) findViewById(R.id.jasnosc);
         SeekBar seekBarContrast = (SeekBar) findViewById(R.id.Kontrast);
 
-        seekBarContrast.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        Zapisz.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+               Photography.getInstance().setPhoto(ostateczna);
+                Intent intent = new Intent(Editable.this, PictureEdit.class);
+                startActivity(intent);
+
+            }});
+
+
+            seekBarContrast.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
             public void onStopTrackingTouch(SeekBar arg0)
             {
@@ -61,9 +72,7 @@ public class Editable extends Activity {
                 Bitmap newBitMap = SeekBarsProgress.doBrightness(Photography.getInstance().getCopy(), progress);
                 Picture.setImageBitmap(newBitMap);
                 Photography.getInstance().setCopyForSeeks(newBitMap);
-
-
-
+                ostateczna = newBitMap;
             }
         });
 
@@ -87,8 +96,12 @@ public class Editable extends Activity {
                 }
                 else{newBitMap = SeekBarsProgress.adjustedContrast(Photography.getInstance().getCopyForSeeks(), progress);}
                 Picture.setImageBitmap(newBitMap);
+                ostateczna = newBitMap;
             }
         });}
+
+
+
 
 
 
