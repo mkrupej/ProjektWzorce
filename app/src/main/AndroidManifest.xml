@@ -35,6 +35,10 @@
             android:name=".presenter.Zoom"
             android:label="@string/title_activity_zoom" >
         </activity>
+        <activity
+            android:name=".presenter.Editable"
+            android:label="@string/title_activity_zoom" >
+        </activity>
     </application>
 
 </manifest>
