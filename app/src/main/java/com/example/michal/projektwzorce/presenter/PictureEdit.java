@@ -3,8 +3,10 @@ package com.example.michal.projektwzorce.presenter;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.View;
@@ -81,8 +83,9 @@ public class PictureEdit extends Activity  {
             public void onClick(View arg0) {
 
                 AbstractAlgorithm bw = new BlackWhiteAlgorithm();
-                Picture.setImageBitmap(bw.calculate(Photography.getInstance().getPhoto()));
-
+                Bitmap myImage = bw.calculate(Photography.getInstance().getPhoto());
+                Picture.setImageBitmap(myImage);
+                Photography.getInstance().setCopy(myImage);
             }
               });
 
@@ -90,7 +93,9 @@ public class PictureEdit extends Activity  {
             public void onClick(View arg0) {
 
                 AbstractAlgorithm sp = new SepiaAlgoritm();
-                Picture.setImageBitmap(sp.calculate(Photography.getInstance().getPhoto()));
+                Bitmap myImage = sp.calculate(Photography.getInstance().getPhoto());
+                Picture.setImageBitmap(myImage);
+                Photography.getInstance().setCopy(myImage);
 
             }});
 
@@ -98,7 +103,9 @@ public class PictureEdit extends Activity  {
             public void onClick(View arg0) {
 
                 AbstractAlgorithm ng = new NegatywAlgoritthm();
-                Picture.setImageBitmap(ng.calculate(Photography.getInstance().getPhoto()));
+                Bitmap myImage = ng.calculate(Photography.getInstance().getPhoto());
+                Picture.setImageBitmap(myImage);
+                Photography.getInstance().setCopy(myImage);
 
             }});
 
@@ -106,7 +113,9 @@ public class PictureEdit extends Activity  {
             public void onClick(View arg0) {
 
                 AbstractAlgorithm bl = new BlurAlgorithm();
-                Picture.setImageBitmap(bl.calculate(Photography.getInstance().getPhoto()));
+                Bitmap myImage = bl.calculate(Photography.getInstance().getPhoto());
+                Picture.setImageBitmap(myImage);
+                Photography.getInstance().setCopy(myImage);
 
             }});
     }
