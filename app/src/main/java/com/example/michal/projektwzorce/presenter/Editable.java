@@ -32,6 +32,7 @@ public class Editable extends Activity {
         Zapisz = (Button) findViewById(R.id.Save);
         Contrast = (SeekBar) findViewById(R.id.Kontrast);
         Brightnes = (SeekBar) findViewById(R.id.jasnosc);
+        Picture.setImageBitmap(Photography.getInstance().getPhoto());
 
 /*
         int brightness;
