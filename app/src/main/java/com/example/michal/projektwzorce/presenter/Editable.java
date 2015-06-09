@@ -48,7 +48,7 @@ public class Editable extends Activity {
         } else {
             Picture.setImageBitmap(Photography.getInstance().getPhoto());
         }
-
+        //tk
         SeekBar seekBarBrightness = (SeekBar) findViewById(R.id.jasnosc);
 
         Zapisz.setOnClickListener(new View.OnClickListener() {
