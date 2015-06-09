@@ -72,9 +72,9 @@ public class PictureEdit extends Activity  {
 
             case R.id.seekbar1:
 
-                settings();
-               // Intent intent = new Intent(PictureEdit.this, Editable.class);
-              //  startActivity(intent);
+                //settings();
+                Intent intent = new Intent(PictureEdit.this, Editable.class);
+                startActivity(intent);
 
                 return true;
 
