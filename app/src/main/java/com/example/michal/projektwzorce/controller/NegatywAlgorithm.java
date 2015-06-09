@@ -9,7 +9,7 @@ import android.graphics.Paint;
 /**
  * Created by Krzysztof on 2015-06-09.
  */
-public class NegatywAlgorytm
+public class NegatywAlgorithm
 {
     public Bitmap ConvertToNegative(Bitmap sampleBitmap){
         ColorMatrix negativeMatrix =new ColorMatrix();
