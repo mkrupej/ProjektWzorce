@@ -55,6 +55,7 @@ public class PictureEdit extends Activity  {
         Przesycenie = (ImageButton) findViewById(R.id.imageButtonFilter4);
 
 
+
         ActionBar bar = getActionBar();
         ArrayList<String> list = new ArrayList<String>();
         list.add("Kontrast");
