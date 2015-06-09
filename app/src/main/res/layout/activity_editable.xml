@@ -9,24 +9,19 @@
 
         <ImageView
             android:layout_width="fill_parent"
-            android:layout_height="350dp"
+            android:layout_height="400dp"
             android:background="@android:color/holo_blue_dark"
             android:id="@+id/Pic"
             android:scaleType="fitXY"
             android:padding="2px"/>
 
-        <SeekBar
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:id="@+id/Kontrast"
-            android:layout_below="@+id/Pic"
-            android:layout_alignParentStart="true" />
+
 
         <SeekBar
             android:layout_width="fill_parent"
             android:layout_height="50dp"
             android:id="@+id/jasnosc"
-            android:layout_below="@+id/Kontrast"
+            android:layout_below="@+id/Pic"
             android:layout_alignParentStart="true" />
 
         <Button
