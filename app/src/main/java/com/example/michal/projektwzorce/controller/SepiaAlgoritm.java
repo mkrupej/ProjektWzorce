@@ -1,5 +1,12 @@
 package com.example.michal.projektwzorce.controller;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
+import android.graphics.Paint;
+
 /**
  * Created by Michal on 2015-06-09.
  */
