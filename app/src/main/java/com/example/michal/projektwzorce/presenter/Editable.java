@@ -51,26 +51,24 @@ public class Editable extends Activity {
 
 
     public static Bitmap doBrightness(Bitmap src, int value) {
-        // image size
+
         int width = src.getWidth();
         int height = src.getHeight();
-        // create output bitmap
         Bitmap bmOut = Bitmap.createBitmap(width, height, src.getConfig());
-        // color information
+
         int A, R, G, B;
         int pixel;
 
-        // scan through all pixels
         for (int x = 0; x < width; ++x) {
             for (int y = 0; y < height; ++y) {
-                // get pixel color
+
                 pixel = src.getPixel(x, y);
                 A = Color.alpha(pixel);
                 R = Color.red(pixel);
                 G = Color.green(pixel);
                 B = Color.blue(pixel);
 
-                // increase/decrease each channel
+
                 R += value;
                 if (R > 255) {
                     R = 255;
