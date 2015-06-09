@@ -18,6 +18,11 @@ import java.util.ArrayList;
 
 
 import com.example.michal.projektwzorce.R;
+import com.example.michal.projektwzorce.controller.AbstractAlgorithm;
+import com.example.michal.projektwzorce.controller.BlackWhiteAlgorithm;
+import com.example.michal.projektwzorce.controller.BlurAlgorithm;
+import com.example.michal.projektwzorce.controller.NegatywAlgoritthm;
+import com.example.michal.projektwzorce.controller.SepiaAlgoritm;
 import com.example.michal.projektwzorce.controller.Zapis;
 import com.example.michal.projektwzorce.model.Photography;
 
@@ -45,16 +50,65 @@ public class PictureEdit extends Activity  {
 
 
         ImageButton czarnoBialy;
-        ImageButton Sepia;
-        ImageButton Negatyw;
-        ImageButton Przesycenie;
+        ImageButton sepia;
+        ImageButton negatyw;
+        ImageButton blur;
 
         czarnoBialy = (ImageButton) findViewById(R.id.imageButtonBlackWhite);
-        Sepia = (ImageButton) findViewById(R.id.imageButtonSepia);
-        Negatyw = (ImageButton) findViewById(R.id.imageButtonFilter3);
-        Przesycenie = (ImageButton) findViewById(R.id.imageButtonFilter4);
+        sepia = (ImageButton) findViewById(R.id.imageButtonSepia);
+        negatyw = (ImageButton) findViewById(R.id.imageButtonFilter3);
+        blur = (ImageButton) findViewById(R.id.imageButtonFilter4);
 
 
+        AbstractAlgorithm bw = new BlackWhiteAlgorithm();
+        AbstractAlgorithm sp = new SepiaAlgoritm();
+        AbstractAlgorithm ng = new NegatywAlgoritthm();
+        AbstractAlgorithm bl = new BlurAlgorithm();
+
+        czarnoBialy.setImageBitmap(bw.calculate(Photography.getInstance().getPhoto()));
+        czarnoBialy.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+        sepia.setImageBitmap(sp.calculate(Photography.getInstance().getPhoto()));
+        sepia.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+        negatyw.setImageBitmap(ng.calculate(Photography.getInstance().getPhoto()));
+        negatyw.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+        blur.setImageBitmap(bl.calculate(Photography.getInstance().getPhoto()));
+        blur.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+        czarnoBialy.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                AbstractAlgorithm bw = new BlackWhiteAlgorithm();
+                Picture.setImageBitmap(bw.calculate(Photography.getInstance().getPhoto()));
+
+            }
+              });
+
+        sepia.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                AbstractAlgorithm sp = new SepiaAlgoritm();
+                Picture.setImageBitmap(sp.calculate(Photography.getInstance().getPhoto()));
+
+            }});
+
+        negatyw.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                AbstractAlgorithm ng = new NegatywAlgoritthm();
+                Picture.setImageBitmap(ng.calculate(Photography.getInstance().getPhoto()));
+
+            }});
+
+        blur.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                AbstractAlgorithm bl = new BlurAlgorithm();
+                Picture.setImageBitmap(bl.calculate(Photography.getInstance().getPhoto()));
+
+            }});
     }
 
 
@@ -72,7 +126,7 @@ public class PictureEdit extends Activity  {
 
             case R.id.seekbar1:
 
-                //settings();
+                settings();
                 Intent intent = new Intent(PictureEdit.this, Editable.class);
                 startActivity(intent);
 

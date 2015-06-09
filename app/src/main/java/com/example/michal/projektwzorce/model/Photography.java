@@ -23,7 +23,12 @@ public class Photography {
 
     public  Bitmap getPhoto(){
 
-        return Picture;
+    return Picture;
+}
+
+    public  Bitmap getCopy(){
+
+        return Copy;
     }
 
     public void setPhoto(Bitmap photo){

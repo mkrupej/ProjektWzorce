@@ -18,6 +18,10 @@ public abstract class AbstractAlgorithm {
         width = b.getWidth();
     }
 
+    public Bitmap calculate(Bitmap b){
+        return getAlgorithm(b);
+    }
+
 
 
 

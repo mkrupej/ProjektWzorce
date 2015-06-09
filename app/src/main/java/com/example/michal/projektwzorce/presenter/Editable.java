@@ -1,11 +1,13 @@
 package com.example.michal.projektwzorce.presenter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.Menu;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
@@ -31,9 +33,11 @@ public class Editable extends Activity {
         Contrast = (SeekBar) findViewById(R.id.Kontrast);
         Brightnes = (SeekBar) findViewById(R.id.jasnosc);
 
-
+/*
         int brightness;
         SeekBar seekBarBrightness = (SeekBar) findViewById(R.id.jasnosc);
+
+
         seekBarBrightness.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
             public void onStopTrackingTouch(SeekBar arg0)
@@ -96,11 +100,5 @@ public class Editable extends Activity {
         }
         // return final image
         return bmOut;
-    }
+   */}
 }
-
-
-
-
-
-

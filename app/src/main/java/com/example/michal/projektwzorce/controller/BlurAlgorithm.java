@@ -11,7 +11,7 @@ public class BlurAlgorithm extends AbstractAlgorithm {
 
     protected Bitmap getAlgorithm(Bitmap sentBitmap) {
 
-        int radius = 20;
+        int radius = 4;
         Bitmap bitmap = sentBitmap.copy(sentBitmap.getConfig(), true);
 
         getCoop(sentBitmap);
