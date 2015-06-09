@@ -26,16 +26,16 @@ import com.example.michal.projektwzorce.model.Photography;
 public class Editable extends Activity {
     ImageView Picture;
     Button Zapisz;
-    Bitmap ostateczna;
-
-
+    Bitmap newBitMap;
     protected void onStop(){
         super.onStop();
-        if(Photography.getInstance().getCopy() != null)
-        Photography.getInstance().setCopyForSeeks(Photography.getInstance().getCopy());
+        if(Photography.getInstance().getCopy() == null)
+            Picture.setImageBitmap(Photography.getInstance().getPhoto());
         else
-            Photography.getInstance().setCopyForSeeks(Photography.getInstance().getPhoto());
+            Picture.setImageBitmap(Photography.getInstance().getCopy());
     }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,23 +43,20 @@ public class Editable extends Activity {
         setContentView(R.layout.activity_editable);
         Picture = (ImageView) findViewById(R.id.Pic);
         Zapisz = (Button) findViewById(R.id.Save);
+
         Picture.setImageBitmap(Photography.getInstance().getCopy());
 
 
-
-        int brightness;
         SeekBar seekBarBrightness = (SeekBar) findViewById(R.id.jasnosc);
         SeekBar seekBarContrast = (SeekBar) findViewById(R.id.Kontrast);
 
         Zapisz.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
 
-               Photography.getInstance().setPhoto(ostateczna);
+                Photography.getInstance().setPhoto(newBitMap);
                 Intent intent = new Intent(Editable.this, PictureEdit.class);
                 startActivity(intent);
-
             }});
-
 
             seekBarContrast.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
@@ -71,42 +68,28 @@ public class Editable extends Activity {
             }
             public void onProgressChanged(SeekBar arg0, int progress, boolean arg2)
             {
-                Bitmap newBitMap = SeekBarsProgress.doBrightness(Photography.getInstance().getCopy(), progress);
+                newBitMap = SeekBarsProgress.doBrightness(Photography.getInstance().getCopy(), progress);
                 Picture.setImageBitmap(newBitMap);
                 Photography.getInstance().setCopyForSeeks(newBitMap);
-                ostateczna = newBitMap;
             }
         });
-
 
         seekBarBrightness.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
             public void onStopTrackingTouch(SeekBar arg0)
             {
-
             }
             public void onStartTrackingTouch(SeekBar arg0)
             {
             }
             public void onProgressChanged(SeekBar arg0, int progress, boolean arg2)
             {
-                Bitmap newBitMap;
                 if(Photography.getInstance().getCopyForSeeks()==null)
                 {
                 newBitMap = SeekBarsProgress.adjustedContrast(Photography.getInstance().getCopy(), progress);
-
                 }
                 else{newBitMap = SeekBarsProgress.adjustedContrast(Photography.getInstance().getCopyForSeeks(), progress);}
                 Picture.setImageBitmap(newBitMap);
-                ostateczna = newBitMap;
             }
         });}
-
-
-
-
-
-
-
-
 }
