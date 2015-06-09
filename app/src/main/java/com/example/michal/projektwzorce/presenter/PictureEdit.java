@@ -73,15 +73,15 @@ public class PictureEdit extends Activity  {
             case R.id.seekbar1:
 
                 settings();
-                Intent intent = new Intent(PictureEdit.this, Editable.class);
-                startActivity(intent);
+               // Intent intent = new Intent(PictureEdit.this, Editable.class);
+              //  startActivity(intent);
 
                 return true;
 
             case R.id.zapis:
 
                 Zapis.zapis();
-                Toast.makeText(getApplicationContext(),"zapisano kurwo", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"zapisano ", Toast.LENGTH_LONG).show();
                 MediaStore.Images.Media.insertImage(getContentResolver(), Photography.getInstance().getPhoto(), "moje foto", "zapis");
 
                 return true;
