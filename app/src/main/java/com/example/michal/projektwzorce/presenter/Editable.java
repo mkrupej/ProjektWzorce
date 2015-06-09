@@ -26,6 +26,7 @@ import com.example.michal.projektwzorce.model.Photography;
 public class Editable extends Activity {
     ImageView Picture;
     Button Zapisz;
+    Bitmap ostateczna;
 
     protected void onStop() {
         super.onStop();
@@ -51,14 +52,25 @@ public class Editable extends Activity {
         //tk
         SeekBar seekBarBrightness = (SeekBar) findViewById(R.id.jasnosc);
 
+
+
+
+
+
+
         Zapisz.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-
-                // Photography.getInstance().setPhoto();
+                Photography.getInstance().setPhoto(ostateczna);
                 Intent intent = new Intent(Editable.this, PictureEdit.class);
                 startActivity(intent);
             }
         });
+
+
+
+
+
+
 
         seekBarBrightness.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
@@ -77,6 +89,8 @@ public class Editable extends Activity {
 
                 Picture.setImageBitmap(newBitMap);
                 Photography.getInstance().setCopyForSeeks(newBitMap);
+                ostateczna=newBitMap;
+
             }
         });
     }
