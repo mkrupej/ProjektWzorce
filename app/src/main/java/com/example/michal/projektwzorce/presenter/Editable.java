@@ -26,7 +26,7 @@ import com.example.michal.projektwzorce.model.Photography;
 public class Editable extends Activity {
     ImageView Picture;
     Button Zapisz;
-    Bitmap newBitMap;
+
     protected void onStop(){
         super.onStop();
         if(Photography.getInstance().getCopy() != null)
@@ -58,7 +58,7 @@ public class Editable extends Activity {
         Zapisz.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
 
-                Photography.getInstance().setPhoto(newBitMap);
+               // Photography.getInstance().setPhoto();
                 Intent intent = new Intent(Editable.this, PictureEdit.class);
                 startActivity(intent);
             }});
@@ -73,7 +73,7 @@ public class Editable extends Activity {
             }
             public void onProgressChanged(SeekBar arg0, int progress, boolean arg2)
             {
-                newBitMap = SeekBarsProgress.doBrightness(Photography.getInstance().getCopy(), progress);
+                Bitmap newBitMap = SeekBarsProgress.doBrightness(Photography.getInstance().getCopy(), progress);
                 Picture.setImageBitmap(newBitMap);
                 Photography.getInstance().setCopyForSeeks(newBitMap);
             }
@@ -89,9 +89,10 @@ public class Editable extends Activity {
             }
             public void onProgressChanged(SeekBar arg0, int progress, boolean arg2)
             {
+                Bitmap newBitMap;
                 if(Photography.getInstance().getCopyForSeeks()==null)
                 {
-                newBitMap = SeekBarsProgress.adjustedContrast(Photography.getInstance().getCopy(), progress);
+                    newBitMap = SeekBarsProgress.adjustedContrast(Photography.getInstance().getCopy(), progress);
                 }
                 else{newBitMap = SeekBarsProgress.adjustedContrast(Photography.getInstance().getCopyForSeeks(), progress);}
                 Picture.setImageBitmap(newBitMap);
