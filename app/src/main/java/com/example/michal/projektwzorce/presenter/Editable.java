@@ -27,6 +27,8 @@ public class Editable extends Activity {
     ImageView Picture;
     Button Zapisz;
     Bitmap ostateczna;
+
+
     protected void onStop(){
         super.onStop();
         if(Photography.getInstance().getCopy() != null)

@@ -33,6 +33,12 @@ public class PictureEdit extends Activity  {
     // private static Photography photo =  Photography.getInstance();
 
     ImageView Picture;
+
+    protected  void onResume(){
+        super.onResume();
+        Picture.setImageBitmap(Photography.getInstance().getPhoto());
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
