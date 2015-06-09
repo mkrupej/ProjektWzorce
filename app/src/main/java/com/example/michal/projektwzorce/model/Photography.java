@@ -12,6 +12,7 @@ public class Photography {
 
     private Bitmap Picture;
     private Bitmap Copy;
+    private Bitmap CopyForSeeks;
     private Photography(){
     }
 
@@ -26,10 +27,21 @@ public class Photography {
     return Picture;
 }
 
+    public  Bitmap getCopyForSeeks(){
+
+        return CopyForSeeks;
+    }
     public  Bitmap getCopy(){
 
         return Copy;
     }
+
+
+    public void setCopyForSeeks(Bitmap photo){
+
+        CopyForSeeks = photo;
+    }
+
 
     public void setCopy(Bitmap photo){
 
