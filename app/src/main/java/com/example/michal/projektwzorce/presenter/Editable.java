@@ -27,6 +27,9 @@ public class Editable extends Activity {
     ImageView Picture;
     Button Zapisz;
 
+    protected void onStop(){
+        Photography.getInstance().setCopyForSeeks(null);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,20 +54,11 @@ public class Editable extends Activity {
             }
             public void onProgressChanged(SeekBar arg0, int progress, boolean arg2)
             {
-               // Bitmap newBitMap = SeekBarsProgress.doBrightness(Photography.getInstance().getCopy(), progress);
-               // Picture.setImageBitmap(newBitMap);
-
-
-                Bitmap newBitMap;
-
-                if(Photography.getInstance().getCopyForSeeks()==null)
-                {
-                    newBitMap = SeekBarsProgress.doBrightness(Photography.getInstance().getCopy(), progress);
-                    Photography.getInstance().setCopyForSeeks(newBitMap);
-
-                }
-                else{newBitMap = SeekBarsProgress.doBrightness(Photography.getInstance().getCopyForSeeks(), progress);}
+                Bitmap newBitMap = SeekBarsProgress.doBrightness(Photography.getInstance().getCopy(), progress);
                 Picture.setImageBitmap(newBitMap);
+                Photography.getInstance().setCopyForSeeks(newBitMap);
+
+
 
             }
         });
@@ -74,6 +68,7 @@ public class Editable extends Activity {
 
             public void onStopTrackingTouch(SeekBar arg0)
             {
+
             }
             public void onStartTrackingTouch(SeekBar arg0)
             {
