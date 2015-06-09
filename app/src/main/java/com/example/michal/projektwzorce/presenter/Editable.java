@@ -29,10 +29,10 @@ public class Editable extends Activity {
     Bitmap newBitMap;
     protected void onStop(){
         super.onStop();
-        if(Photography.getInstance().getCopy() == null)
-            Picture.setImageBitmap(Photography.getInstance().getPhoto());
+        if(Photography.getInstance().getCopy() != null)
+        Photography.getInstance().setCopyForSeeks(Photography.getInstance().getCopy());
         else
-            Picture.setImageBitmap(Photography.getInstance().getCopy());
+            Photography.getInstance().setCopyForSeeks(Photography.getInstance().getPhoto());
     }
 
 
@@ -44,7 +44,13 @@ public class Editable extends Activity {
         Picture = (ImageView) findViewById(R.id.Pic);
         Zapisz = (Button) findViewById(R.id.Save);
 
-        Picture.setImageBitmap(Photography.getInstance().getCopy());
+        if(Photography.getInstance().getCopy() == null) {
+            Picture.setImageBitmap(Photography.getInstance().getPhoto());
+        }
+        else
+        {
+            Picture.setImageBitmap(Photography.getInstance().getCopy());
+        }
 
 
         SeekBar seekBarBrightness = (SeekBar) findViewById(R.id.jasnosc);
