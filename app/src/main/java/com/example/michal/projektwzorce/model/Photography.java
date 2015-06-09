@@ -31,10 +31,16 @@ public class Photography {
         return Copy;
     }
 
+    public void setCopy(Bitmap photo){
+
+        Copy = photo;
+    }
+
+
     public void setPhoto(Bitmap photo){
 
         Picture = photo;
-        Copy = photo;
+
 
     }
 
