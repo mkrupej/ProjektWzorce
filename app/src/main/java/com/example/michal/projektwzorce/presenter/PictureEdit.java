@@ -57,7 +57,7 @@ public class PictureEdit extends Activity  {
         ActionBar bar = getActionBar();
         ArrayList<String> list = new ArrayList<String>();
         list.add("Kontrast");
-        list.add("Jasnoœæ");
+        list.add("Jasnosc");
 
     }
 
