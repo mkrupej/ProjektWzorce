@@ -32,7 +32,7 @@ public class Editable extends Activity {
         setContentView(R.layout.activity_editable);
         Picture = (ImageView) findViewById(R.id.Pic);
         Zapisz = (Button) findViewById(R.id.Save);
-        Picture.setImageBitmap(Photography.getInstance().getPhoto());
+        Picture.setImageBitmap(Photography.getInstance().getCopy());
 
 
         int brightness;
@@ -49,7 +49,7 @@ public class Editable extends Activity {
             }
             public void onProgressChanged(SeekBar arg0, int progress, boolean arg2)
             {
-                Bitmap newBitMap = doBrightness(Photography.getInstance().getPhoto(), progress);
+                Bitmap newBitMap = doBrightness(Photography.getInstance().getCopy(), progress);
                 Picture.setImageBitmap(newBitMap);
             }
         });
@@ -65,7 +65,7 @@ public class Editable extends Activity {
             }
             public void onProgressChanged(SeekBar arg0, int progress, boolean arg2)
             {
-                Bitmap newBitMap = adjustedContrast(Photography.getInstance().getPhoto(), progress);
+                Bitmap newBitMap = adjustedContrast(Photography.getInstance().getCopy(), progress);
                 Picture.setImageBitmap(newBitMap);
             }
         });}
@@ -171,4 +171,7 @@ public class Editable extends Activity {
         }
         return bmOut;
     }
+
+
+
 }
