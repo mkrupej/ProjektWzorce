@@ -9,9 +9,9 @@ import android.graphics.Paint;
 /**
  * Created by Krzysztof on 2015-06-09.
  */
-public class NegatywAlgorithm
+public class NegatywAlgoritthm extends AbstractAlgorithm
 {
-    public Bitmap ConvertToNegative(Bitmap sampleBitmap){
+    public Bitmap getAlgorithm(Bitmap sampleBitmap){
         ColorMatrix negativeMatrix =new ColorMatrix();
         float[] negMat={-1, 0, 0, 0, 255, 0, -1, 0, 0, 255, 0, 0, -1, 0, 255, 0, 0, 0, 1, 0 };
         negativeMatrix.set(negMat);

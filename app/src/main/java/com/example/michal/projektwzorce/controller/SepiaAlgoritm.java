@@ -10,15 +10,16 @@ import android.graphics.Paint;
 /**
  * Created by Michal on 2015-06-09.
  */
-public class SepiaAlgoritm
+public class SepiaAlgoritm extends AbstractAlgorithm
 {
 
-    public Bitmap toSephia(Bitmap bmpOriginal)
+    public Bitmap getAlgorithm(Bitmap bmpOriginal)
     {
-        int width, height, r,g, b, c, gry;
-        height = bmpOriginal.getHeight();
-        width = bmpOriginal.getWidth();
+        int  r,g, b, c, gry;
+
         int depth = 20;
+
+        getCoop(bmpOriginal);
 
         Bitmap bmpSephia = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bmpSephia);

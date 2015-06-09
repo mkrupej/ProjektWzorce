@@ -7,15 +7,18 @@ import android.graphics.Bitmap;
  */
 public abstract class AbstractAlgorithm {
 
+    protected int width;
+    protected int height;
 
-    final public Bitmap algorithm() {
-        if (this.getA() != 5) return null;
-        else if (this.getB() == 9) return null;
-        else return null;
+    abstract protected Bitmap getAlgorithm(Bitmap b);
+
+    public void getCoop(Bitmap b) {
+
+        height = b.getHeight();
+        width = b.getWidth();
     }
 
-    abstract protected int getA();
-    abstract protected int getB();
+
 
 
 }
