@@ -44,12 +44,11 @@ public class Editable extends Activity {
         Picture = (ImageView) findViewById(R.id.Pic);
         Zapisz = (Button) findViewById(R.id.Save);
 
-        if(Photography.getInstance().getCopy() == null) {
-            Picture.setImageBitmap(Photography.getInstance().getPhoto());
-        }
-        else
-        {
+        if(Photography.getInstance().getCopy() != null) {
             Picture.setImageBitmap(Photography.getInstance().getCopy());
+        }
+        else {
+            Picture.setImageBitmap(Photography.getInstance().getPhoto());
         }
 
 
