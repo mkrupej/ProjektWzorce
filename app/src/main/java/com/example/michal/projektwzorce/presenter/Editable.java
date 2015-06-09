@@ -28,7 +28,11 @@ public class Editable extends Activity {
     Button Zapisz;
 
     protected void onStop(){
-        Photography.getInstance().setCopyForSeeks(null);
+        super.onStop();
+        if(Photography.getInstance().getCopy() != null)
+        Photography.getInstance().setCopyForSeeks(Photography.getInstance().getCopy());
+        else
+            Photography.getInstance().setCopyForSeeks(Photography.getInstance().getPhoto());
     }
 
     @Override
