@@ -34,7 +34,7 @@ public class Editable extends Activity {
         Brightnes = (SeekBar) findViewById(R.id.jasnosc);
         Picture.setImageBitmap(Photography.getInstance().getPhoto());
 
-/*
+
         int brightness;
         SeekBar seekBarBrightness = (SeekBar) findViewById(R.id.jasnosc);
 
@@ -101,5 +101,5 @@ public class Editable extends Activity {
         }
         // return final image
         return bmOut;
-   */}
+   }
 }
