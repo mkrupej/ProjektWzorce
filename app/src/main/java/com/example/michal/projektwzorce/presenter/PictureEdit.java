@@ -194,10 +194,6 @@ public class PictureEdit extends Activity  {
                 catch(Exception e)
                 {}
                 tak.share("facebook", file.toString());
-
-    //sada
-//aaaaa
-
             case R.id.mail:
 
 

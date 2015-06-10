@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
+
+import com.example.michal.projektwzorce.R;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -19,6 +22,13 @@ public class ShareContext extends Activity
     ShareStrategy shareStrategy;
 
     private String nazwa;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_picture_edit);}
+
 
     public void setShareStrategy(ShareStrategy shareStrategy)
     {
