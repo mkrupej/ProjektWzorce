@@ -5,8 +5,13 @@ package com.example.michal.projektwzorce.controller.Strategy;
  */
 public class ShareContext
 {
-    ShareStrategy strategy;
+    ShareStrategy shareStrategy;
+
     private String nazwa;
+
+    public void setShareStrategy(ShareStrategy shareStrategy) {
+        this.shareStrategy = shareStrategy;
+    }
 
     public ShareContext()
     {
