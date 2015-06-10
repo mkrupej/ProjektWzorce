@@ -182,35 +182,22 @@ public class PictureEdit extends Activity  {
                 return true;
 
             case R.id.facebook:
-                ShareContext shareContext = new ShareContext();
-                String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
-                OutputStream outStream = null;
-                File file = new File(extStorageDirectory, "MAIL.PNG");
-                try {
-                    outStream = new FileOutputStream(file);
-                    Photography.getInstance().getPhoto().compress(Bitmap.CompressFormat.PNG, 100, outStream);
-                    outStream.flush();
-                    outStream.close();
-                }
-                catch(Exception e)
-                {}
 
+            sharing("facebook");
 
-                Intent share = new Intent(android.content.Intent.ACTION_SEND);
-                share.setType("image/*");
-                List<ResolveInfo> resInfo = getPackageManager().queryIntentActivities(share, 0);
+                return true;
 
-                List<Intent> shareList =   shareContext.share("facebook", file.toString(),resInfo);
-                Intent chooserIntent = Intent.createChooser(shareList.remove(0), "Wybierz aplikacje.");
-                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, shareList.toArray(new Parcelable[]{}));
-                startActivity(chooserIntent);
+            case R.id.sms:
+
+                sharing("twitter");
 
                 return true;
 
             case R.id.mail:
 
+            sharing("gmail");
 
-
+                return true;
 
             default:
 
@@ -228,6 +215,35 @@ public class PictureEdit extends Activity  {
     {
         Intent back = new Intent(PictureEdit.this, ChoiceActivity.class);
         PictureEdit.this.startActivity(back);
+    }
+
+
+
+    public void sharing (String name){
+        ShareContext shareContext = new ShareContext();
+        String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
+        OutputStream outStream = null;
+        File file = new File(extStorageDirectory, "MAIL.PNG");
+        try {
+            outStream = new FileOutputStream(file);
+            Photography.getInstance().getPhoto().compress(Bitmap.CompressFormat.PNG, 100, outStream);
+            outStream.flush();
+            outStream.close();
+        }
+        catch(Exception e)
+        {}
+
+
+        Intent share = new Intent(android.content.Intent.ACTION_SEND);
+        share.setType("image/*");
+        List<ResolveInfo> resInfo = getPackageManager().queryIntentActivities(share, 0);
+
+        List<Intent> shareList =   shareContext.share(name, file.toString(),resInfo);
+        Intent chooserIntent = Intent.createChooser(shareList.remove(0), "Wybierz aplikacje.");
+        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, shareList.toArray(new Parcelable[]{}));
+        startActivity(chooserIntent);
+
+
     }
 
     }
