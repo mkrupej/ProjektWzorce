@@ -31,7 +31,6 @@ public class ShareContext extends Activity
         Intent share = new Intent(android.content.Intent.ACTION_SEND);
         share.setType("text/plain");
 
-        // gets the list of intents that can be loaded.
         List<ResolveInfo> resInfo = ShareContext.this.getPackageManager().queryIntentActivities(share, 0);
         System.out.println("resinfo: " + resInfo);
         if (!resInfo.isEmpty()){
