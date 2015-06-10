@@ -10,8 +10,10 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.text.Html;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageButton;
@@ -179,7 +181,7 @@ public class PictureEdit extends Activity  {
                 return true;
 
             case R.id.facebook:
-                ShareContext shareContext = new ShareContext();
+
                 String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
                 OutputStream outStream = null;
                 File file = new File(extStorageDirectory, "MAIL.PNG");
@@ -191,7 +193,7 @@ public class PictureEdit extends Activity  {
                 }
                 catch(Exception e)
                 {}
-                shareContext.share("facebook", file.toString());
+                share2("facebook", file.toString());
 
     //sada
 
@@ -222,6 +224,34 @@ public class PictureEdit extends Activity  {
 
     }
 
+    public void share2(String nameApp, String imagePath) {
+        try
+        {
+            List<Intent> targetedShareIntents = new ArrayList<Intent>();
+            Intent share = new Intent(android.content.Intent.ACTION_SEND);
+            share.setType("image/*");
+            List<ResolveInfo> resInfo = getPackageManager().queryIntentActivities(share, 0);
+            if (!resInfo.isEmpty()){
+                for (ResolveInfo info : resInfo) {
+                    Intent targetedShare = new Intent(android.content.Intent.ACTION_SEND);
+                    targetedShare.setType("image/*"); // put here your mime type
+                    if (info.activityInfo.packageName.toLowerCase().contains(nameApp) || info.activityInfo.name.toLowerCase().contains(nameApp)) {
+                        targetedShare.putExtra(Intent.EXTRA_SUBJECT, "Sample Photo");
+                        targetedShare.putExtra(Intent.EXTRA_TEXT,"This photo is created by App Name");
+                        targetedShare.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(imagePath)) );
+                        targetedShare.setPackage(info.activityInfo.packageName);
+                        targetedShareIntents.add(targetedShare);
+                    }
+                }
+                Intent chooserIntent = Intent.createChooser(targetedShareIntents.remove(0), "Wybierz aplikacjê.");
+                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray(new Parcelable[]{}));
+                startActivity(chooserIntent);
+            }
+        }
+        catch(Exception e){
+            Log.v("VM", "Exception while sending image on" + nameApp + " " + e.getMessage());
+        }
+    }
 
 
 
