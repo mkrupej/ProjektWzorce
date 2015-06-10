@@ -46,6 +46,7 @@ public class PictureEdit extends Activity  {
         setContentView(R.layout.activity_picture_edit);
         getActionBar().setDisplayShowTitleEnabled(false);
         Picture = (ImageView) findViewById(R.id.Pic);
+
         if(Photography.getInstance().getCopy() == null) {
             Picture.setImageBitmap(Photography.getInstance().getPhoto());
         }
