@@ -15,6 +15,7 @@ import android.view.MenuItem;
 
 
 import com.example.michal.projektwzorce.R;
+import com.example.michal.projektwzorce.controller.Strategy.ShareContext;
 import com.example.michal.projektwzorce.controller.TemplateMethod.AbstractAlgorithm;
 import com.example.michal.projektwzorce.controller.TemplateMethod.BlackWhiteAlgorithm;
 import com.example.michal.projektwzorce.controller.TemplateMethod.BlurAlgorithm;
@@ -140,6 +141,8 @@ public class PictureEdit extends Activity  {
 
         switch (item.getItemId()) {
 
+
+
             case R.id.seekbar1:
 
                 settings();
@@ -165,8 +168,9 @@ public class PictureEdit extends Activity  {
 
             case R.id.facebook:
 
-                facebook();
-
+                //facebook();
+                ShareContext shareContex = new ShareContext();
+                shareContex.getShareIntent("facebook");
                 return true;
 
             default:
@@ -185,8 +189,8 @@ public class PictureEdit extends Activity  {
         PictureEdit.this.startActivity(back);
     }
 
-    public void facebook(){
-
+    public void facebook()
+    {
 
     }
 
@@ -194,7 +198,7 @@ public class PictureEdit extends Activity  {
 
 
 
-    public void share()
+   /* public void share()
     {
         Intent sharingIntent = new Intent(Intent.ACTION_SEND);
         Uri image = Uri.parse(("android.resource://" + getPackageName() + "/" + Photography.getInstance().getPhoto()));
@@ -202,7 +206,7 @@ public class PictureEdit extends Activity  {
         sharingIntent.putExtra(Intent.EXTRA_STREAM, image);
         startActivity(Intent.createChooser(sharingIntent, "Share image using"));
 
-    }
+    } */
 }
 
 
