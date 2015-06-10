@@ -5,6 +5,6 @@ package com.example.michal.projektwzorce.controller.Strategy;
  */
 public interface ShareStrategy
 {
-
+    public void communities (String nazwa);
 
 }
