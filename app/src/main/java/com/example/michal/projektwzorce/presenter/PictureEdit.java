@@ -1,11 +1,17 @@
 package com.example.michal.projektwzorce.presenter;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.LabeledIntent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.Html;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageButton;
@@ -23,6 +29,9 @@ import com.example.michal.projektwzorce.controller.TemplateMethod.NegatywAlgorit
 import com.example.michal.projektwzorce.controller.TemplateMethod.SepiaAlgoritm;
 import com.example.michal.projektwzorce.controller.Zapis;
 import com.example.michal.projektwzorce.model.Photography;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PictureEdit extends Activity  {
 
@@ -172,6 +181,69 @@ public class PictureEdit extends Activity  {
                 ShareContext shareContex = new ShareContext();
                 shareContex.getShareIntent("facebook");
                 return true;
+
+
+
+
+            case R.id.mail:
+
+
+                Resources resources = getResources();
+
+                Intent emailIntent = new Intent();
+                emailIntent.setAction(Intent.ACTION_SEND);
+                // Native email client doesn't currently support HTML, but it doesn't hurt to try in case they fix it
+                emailIntent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(resources.getString(R.string.share_email_native)));
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, resources.getString(R.string.share_email_subject));
+                emailIntent.setType("message/rfc822");
+
+                PackageManager pm = getPackageManager();
+                Intent sendIntent = new Intent(Intent.ACTION_SEND);
+                sendIntent.setType("text/plain");
+
+
+                Intent openInChooser = Intent.createChooser(emailIntent, resources.getString(R.string.share_chooser_text));
+
+                List<ResolveInfo> resInfo = pm.queryIntentActivities(sendIntent, 0);
+                List<LabeledIntent> intentList = new ArrayList<LabeledIntent>();
+                for (int i = 0; i < resInfo.size(); i++) {
+                    // Extract the label, append it, and repackage it in a LabeledIntent
+                    ResolveInfo ri = resInfo.get(i);
+                    String packageName = ri.activityInfo.packageName;
+                    if(packageName.contains("android.email")) {
+                        emailIntent.setPackage(packageName);
+                    } else if(packageName.contains("twitter") || packageName.contains("facebook") || packageName.contains("mms") || packageName.contains("android.gm")) {
+                        Intent intent2 = new Intent();
+                        intent2.setComponent(new ComponentName(packageName, ri.activityInfo.name));
+                        intent2.setAction(Intent.ACTION_SEND);
+                        intent2.setType("text/plain");
+                        if(packageName.contains("twitter")) {
+                            intent2.putExtra(Intent.EXTRA_TEXT, resources.getString(R.string.share_twitter));
+                        } else if(packageName.contains("facebook")) {
+                            // Warning: Facebook IGNORES our text. They say "These fields are intended for users to express themselves. Pre-filling these fields erodes the authenticity of the user voice."
+                            // One workaround is to use the Facebook SDK to post, but that doesn't allow the user to choose how they want to share. We can also make a custom landing page, and the link
+                            // will show the <meta content ="..."> text from that page with our link in Facebook.
+                            intent2.putExtra(Intent.EXTRA_TEXT, resources.getString(R.string.share_facebook));
+                        } else if(packageName.contains("mms")) {
+                            intent.putExtra(Intent.EXTRA_TEXT, resources.getString(R.string.share_sms));
+                        } else if(packageName.contains("android.gm")) {
+                            intent2.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(resources.getString(R.string.share_email_gmail)));
+                            intent2.putExtra(Intent.EXTRA_SUBJECT, resources.getString(R.string.share_email_subject));
+                            intent2.setType("message/rfc822");
+                        }
+
+                        intentList.add(new LabeledIntent(intent, packageName, ri.loadLabel(pm), ri.icon));
+                    }
+                }
+
+                // convert intentList to array
+                LabeledIntent[] extraIntents = intentList.toArray( new LabeledIntent[ intentList.size() ]);
+
+                openInChooser.putExtra(Intent.EXTRA_INITIAL_INTENTS, extraIntents);
+                startActivity(openInChooser);
+
+
+
 
             default:
 
