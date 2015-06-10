@@ -24,6 +24,7 @@ import android.view.MenuItem;
 
 import com.example.michal.projektwzorce.R;
 import com.example.michal.projektwzorce.controller.Strategy.ShareContext;
+import com.example.michal.projektwzorce.controller.Strategy.ShareStrategy;
 import com.example.michal.projektwzorce.controller.TemplateMethod.AbstractAlgorithm;
 import com.example.michal.projektwzorce.controller.TemplateMethod.BlackWhiteAlgorithm;
 import com.example.michal.projektwzorce.controller.TemplateMethod.BlurAlgorithm;
@@ -194,9 +195,17 @@ public class PictureEdit extends Activity  {
                 catch(Exception e)
                 {}
 
-               shareContext.share("facebook", file.toString());
 
+                Intent share = new Intent(android.content.Intent.ACTION_SEND);
+                share.setType("image/*");
+                List<ResolveInfo> resInfo = getPackageManager().queryIntentActivities(share, 0);
 
+                List<Intent> shareList =   shareContext.share("facebook", file.toString(),resInfo);
+                Intent chooserIntent = Intent.createChooser(shareList.remove(0), "Wybierz aplikacje.");
+                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, shareList.toArray(new Parcelable[]{}));
+                startActivity(chooserIntent);
+
+                return true;
 
             case R.id.mail:
 
