@@ -26,7 +26,7 @@ import com.example.michal.projektwzorce.model.Photography;
 public class Editable extends Activity {
     ImageView Picture;
     Button Zapisz;
-    Bitmap ostateczna;
+   public static Bitmap ostateczna;
 
     protected void onStop() {
         super.onStop();
