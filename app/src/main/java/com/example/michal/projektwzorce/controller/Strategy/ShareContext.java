@@ -48,7 +48,7 @@ public class ShareContext
         List<Intent> targetedShareIntents = new ArrayList<Intent>();
         Intent share = new Intent(android.content.Intent.ACTION_SEND);
         share.setType("image/*");
-      
+
         if (!resInfo.isEmpty()) {
             for (ResolveInfo info : resInfo) {
                 Intent targetedShare = new Intent(android.content.Intent.ACTION_SEND);
@@ -66,10 +66,6 @@ public class ShareContext
         }
         return null;
     }
-
-
-
-
 
 
 

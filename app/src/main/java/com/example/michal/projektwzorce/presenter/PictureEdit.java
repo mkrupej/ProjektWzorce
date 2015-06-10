@@ -237,12 +237,10 @@ public class PictureEdit extends Activity  {
         Intent share = new Intent(android.content.Intent.ACTION_SEND);
         share.setType("image/*");
         List<ResolveInfo> resInfo = getPackageManager().queryIntentActivities(share, 0);
-
         List<Intent> shareList =   shareContext.share(name, file.toString(),resInfo);
         Intent chooserIntent = Intent.createChooser(shareList.remove(0), "Wybierz aplikacje.");
         chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, shareList.toArray(new Parcelable[]{}));
         startActivity(chooserIntent);
-
 
     }
 
