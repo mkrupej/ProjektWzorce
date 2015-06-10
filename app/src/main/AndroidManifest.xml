@@ -39,6 +39,13 @@
             android:name=".presenter.Editable"
             android:label="@string/title_activity_zoom" >
         </activity>
+
+        <activity
+            android:name=".controller.Strategy.ShareContext"
+            android:label="@string/title_activity_zoom" >
+        </activity>
+
+
     </application>
 
 </manifest>

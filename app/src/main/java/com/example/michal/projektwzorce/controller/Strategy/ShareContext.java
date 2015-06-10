@@ -8,8 +8,6 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
 
-import com.example.michal.projektwzorce.R;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,21 +20,23 @@ public class ShareContext extends Activity
     ShareStrategy shareStrategy;
 
     private String nazwa;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_picture_edit);}
+    private String imagePath;
 
 
-    public void setShareStrategy(ShareStrategy shareStrategy)
-    {
+    public void setShareStrategy(ShareStrategy shareStrategy) {
         this.shareStrategy = shareStrategy;
+    }
+
+
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+        share(nazwa, imagePath);
     }
 
     public void share(String nameApp, String imagePath)
     {
+
         try
         {
             List<Intent> targetedShareIntents = new ArrayList<Intent>();
@@ -46,7 +46,7 @@ public class ShareContext extends Activity
             if (!resInfo.isEmpty()){
                 for (ResolveInfo info : resInfo) {
                     Intent targetedShare = new Intent(android.content.Intent.ACTION_SEND);
-                    targetedShare.setType("image/*"); // put here your mime type
+                    targetedShare.setType("image/*");
                     if (info.activityInfo.packageName.toLowerCase().contains(nameApp) || info.activityInfo.name.toLowerCase().contains(nameApp)) {
                         targetedShare.putExtra(Intent.EXTRA_SUBJECT, "Sample Photo");
                         targetedShare.putExtra(Intent.EXTRA_TEXT,"This photo is created by App Name");
@@ -64,5 +64,4 @@ public class ShareContext extends Activity
             Log.v("VM", "Exception while sending image on" + nameApp + " " + e.getMessage());
         }
     }
-    }
-
+}

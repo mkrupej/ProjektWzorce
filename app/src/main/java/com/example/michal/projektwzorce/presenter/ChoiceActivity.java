@@ -70,7 +70,7 @@ public class ChoiceActivity extends Activity {
         if (resultCode == RESULT_OK) {
             if (requestCode == FROM_GALLERY) {
                 Uri selectedImageUri = data.getData();
-                photo.setPath(getPath(selectedImageUri));
+                Photography.getInstance().setPath(getPath(selectedImageUri));
                 try {
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImageUri);
                     Photography.getInstance().setPhoto(bitmap);

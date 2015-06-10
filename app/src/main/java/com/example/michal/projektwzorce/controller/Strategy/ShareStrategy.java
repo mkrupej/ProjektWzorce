@@ -7,5 +7,5 @@ import android.content.Intent;
  */
 public interface ShareStrategy
 {
-   // public void share (String nazwa);
+ //   public Intent share (String nazwa);
 }
