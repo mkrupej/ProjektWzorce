@@ -11,6 +11,7 @@ public class FacebookStrategy extends ShareContext implements ShareStrategy {
         Intent facebookIntent = getShareIntent("facebook");
         if(facebookIntent != null)
             targetedShareIntents.add(facebookIntent);
+        //aaa
     }
 }
 
