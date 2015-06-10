@@ -210,18 +210,15 @@ public class PictureEdit extends Activity  {
         }
     }
 
-    public void settings() {
+    public void settings()
+    {
         Toast.makeText(this, "Home Option Selexted", Toast.LENGTH_SHORT).show();
     }
 
-    public void home() {
+    public void home()
+    {
         Intent back = new Intent(PictureEdit.this, ChoiceActivity.class);
         PictureEdit.this.startActivity(back);
-    }
-
-    public void facebook()
-    {
-
     }
 
     public void share2(String nameApp, String imagePath) {
@@ -253,18 +250,6 @@ public class PictureEdit extends Activity  {
         }
     }
 
-
-
-
-   /* public void share()
-    {
-        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-        Uri image = Uri.parse(("android.resource://" + getPackageName() + "/" + Photography.getInstance().getPhoto()));
-        sharingIntent.setType("image/png");
-        sharingIntent.putExtra(Intent.EXTRA_STREAM, image);
-        startActivity(Intent.createChooser(sharingIntent, "Share image using"));
-
-    } */
 }
 
 
