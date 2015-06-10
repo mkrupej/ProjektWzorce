@@ -11,8 +11,13 @@ import java.util.List;
  */
 public class ShareContext extends Activity
 {
-    ShareStrategy strategy;
+    ShareStrategy shareStrategy;
+
     private String nazwa;
+
+    public void setShareStrategy(ShareStrategy shareStrategy) {
+        this.shareStrategy = shareStrategy;
+    }
 
     public ShareContext()
     {
