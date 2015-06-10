@@ -8,7 +8,7 @@ import android.content.Intent;
 public class FacebookStrategy extends ShareContext implements ShareStrategy {
     public void share(String nazwa)
     {
-        Intent facebookIntent = getShareIntent("facebook");
+
 
         }
         }
