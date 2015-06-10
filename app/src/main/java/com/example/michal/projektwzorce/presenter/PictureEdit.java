@@ -193,7 +193,7 @@ public class PictureEdit extends Activity  {
                 {}
                 shareContext.share("facebook", file.toString());
 
-
+    //sada
 
 
             case R.id.mail:
