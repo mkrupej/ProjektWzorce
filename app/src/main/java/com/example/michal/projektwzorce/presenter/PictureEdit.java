@@ -181,7 +181,7 @@ public class PictureEdit extends Activity  {
                 return true;
 
             case R.id.facebook:
-
+                ShareContext shareContext = new ShareContext();
                 String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
                 OutputStream outStream = null;
                 File file = new File(extStorageDirectory, "MAIL.PNG");
@@ -193,7 +193,7 @@ public class PictureEdit extends Activity  {
                 }
                 catch(Exception e)
                 {}
-                share2("facebook", file.toString());
+                shareContext.share("facebook", file.toString());
 
     //sada
 
