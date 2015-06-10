@@ -7,5 +7,5 @@ import android.content.Intent;
  */
 public interface ShareStrategy
 {
- //   public Intent share (String nazwa);
+    public String typeOfNetworks ();
 }

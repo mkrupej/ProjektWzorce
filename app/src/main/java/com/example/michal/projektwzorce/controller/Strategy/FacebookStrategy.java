@@ -7,10 +7,9 @@ import android.content.Intent;
  */
 public class FacebookStrategy extends ShareContext implements ShareStrategy {
 
-   /* public Intent share(String nazwa)
-    {
-
-
-        }*/
+    public String typeOfNetworks (){
+        String typeOfNetwork = "facebook";
+        return typeOfNetwork;
+    };
         }
 

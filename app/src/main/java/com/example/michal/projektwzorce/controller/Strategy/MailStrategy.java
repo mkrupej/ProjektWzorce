@@ -7,8 +7,9 @@ import android.content.Intent;
  */
 public class MailStrategy extends ShareContext implements ShareStrategy
 {
-   /*public Intent share(String nazwa)
-    {
-        Intent mailIntent = getShareIntent("mail");
-    }*/
+    public String typeOfNetworks (){
+        String typeOfNetwork = "mail";
+        return typeOfNetwork;
+    };
+
 }
