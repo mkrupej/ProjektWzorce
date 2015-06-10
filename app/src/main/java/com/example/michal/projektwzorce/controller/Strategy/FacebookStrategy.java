@@ -9,9 +9,7 @@ public class FacebookStrategy extends ShareContext implements ShareStrategy {
     public void share(String nazwa)
     {
         Intent facebookIntent = getShareIntent("facebook");
-        if(facebookIntent != null)
-            targetedShareIntents.add(facebookIntent);
-        //aaa
-    }
-}
+
+        }
+        }
 

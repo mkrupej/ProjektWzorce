@@ -24,7 +24,6 @@ public class ShareContext extends Activity
         this.nazwa = new String();
     }
 
-
     public Intent getShareIntent(String type)
     {
         boolean found = false;
