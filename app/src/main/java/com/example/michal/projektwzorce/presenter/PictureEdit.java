@@ -156,10 +156,6 @@ public class PictureEdit extends Activity  {
 
                 return true;
 
-            case R.id.przyciecie:
-
-                Intent cropIntent = new Intent("com.android.camera.action.CROP");
-                startActivity(cropIntent);
 
             case R.id.home:
 
@@ -190,7 +186,10 @@ public class PictureEdit extends Activity  {
     }
 
     public void facebook(){
-        share();
+        Intent normalIntent = new Intent(Intent.ACTION_SEND);
+        normalIntent.setType("text/plain");
+        normalIntent.setPackage("com.katana.facebook"); // I just know the package of Facebook, the rest you will have to search for or use my method.
+        normalIntent.putExtra(Intent.EXTRA_TEXT, "The text you want to share to Facebook");
 
     }
 

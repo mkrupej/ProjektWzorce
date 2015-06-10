@@ -12,7 +12,7 @@
             android:id="@+id/seekbar1"
             android:orderInCategory="101"
             android:showAsAction="never"
-            android:title="Kontrast/Jasnosc"
+            android:title="Jasnosc"
             />
 
         <item
@@ -20,12 +20,6 @@
             android:orderInCategory="102"
             android:showAsAction="never"
             android:title="Zapisz"
-            />
-        <item
-            android:id="@+id/przyciecie"
-            android:orderInCategory="103"
-            android:showAsAction="never"
-            android:title="Przytnij"
             />
     </item>
 
