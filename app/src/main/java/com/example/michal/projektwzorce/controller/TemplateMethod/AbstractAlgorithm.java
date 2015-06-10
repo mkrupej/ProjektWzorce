@@ -1,4 +1,4 @@
-package com.example.michal.projektwzorce.controller;
+package com.example.michal.projektwzorce.controller.TemplateMethod;
 
 import android.graphics.Bitmap;
 

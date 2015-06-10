@@ -1,12 +1,10 @@
 package com.example.michal.projektwzorce.presenter;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.View;
@@ -16,15 +14,12 @@ import android.widget.Toast;
 import android.view.MenuItem;
 
 
-import java.util.ArrayList;
-
-
 import com.example.michal.projektwzorce.R;
-import com.example.michal.projektwzorce.controller.AbstractAlgorithm;
-import com.example.michal.projektwzorce.controller.BlackWhiteAlgorithm;
-import com.example.michal.projektwzorce.controller.BlurAlgorithm;
-import com.example.michal.projektwzorce.controller.NegatywAlgoritthm;
-import com.example.michal.projektwzorce.controller.SepiaAlgoritm;
+import com.example.michal.projektwzorce.controller.TemplateMethod.AbstractAlgorithm;
+import com.example.michal.projektwzorce.controller.TemplateMethod.BlackWhiteAlgorithm;
+import com.example.michal.projektwzorce.controller.TemplateMethod.BlurAlgorithm;
+import com.example.michal.projektwzorce.controller.TemplateMethod.NegatywAlgoritthm;
+import com.example.michal.projektwzorce.controller.TemplateMethod.SepiaAlgoritm;
 import com.example.michal.projektwzorce.controller.Zapis;
 import com.example.michal.projektwzorce.model.Photography;
 

@@ -1,4 +1,4 @@
-package com.example.michal.projektwzorce.controller;
+package com.example.michal.projektwzorce.controller.TemplateMethod;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -6,6 +6,8 @@ import android.graphics.Color;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
+
+import com.example.michal.projektwzorce.controller.TemplateMethod.AbstractAlgorithm;
 
 /**
  * Created by Michal on 2015-06-09.

@@ -1,7 +1,9 @@
-package com.example.michal.projektwzorce.controller;
+package com.example.michal.projektwzorce.controller.TemplateMethod;
 
 import android.graphics.Bitmap;
 import android.util.Log;
+
+import com.example.michal.projektwzorce.controller.TemplateMethod.AbstractAlgorithm;
 
 /**
  * Created by Michal on 2015-06-09.
