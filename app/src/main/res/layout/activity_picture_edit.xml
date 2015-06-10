@@ -42,7 +42,7 @@
         android:minWidth="90dp"
         android:scaleType="fitXY"
         android:minHeight="120dp"
-        android:padding="10dp"
+        android:padding="0dp"
 
         />
 

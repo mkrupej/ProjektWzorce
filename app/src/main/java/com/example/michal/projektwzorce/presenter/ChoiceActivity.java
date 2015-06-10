@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
@@ -29,13 +30,21 @@ public class ChoiceActivity extends Activity {
     private int TAKE_PICTURE = 1;
     private int FROM_GALLERY = 2;
 
+    protected void onResume(){
+        super.onResume();
+
+    }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choice);
         getActionBar().hide();
+
+
+
 
         takePicture = (ImageView)findViewById(R.id.imageCameraChoice);
 

@@ -56,8 +56,6 @@ public class Editable extends Activity {
 
 
 
-
-
         Zapisz.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 Photography.getInstance().setPhoto(ostateczna);
@@ -65,9 +63,6 @@ public class Editable extends Activity {
                 startActivity(intent);
             }
         });
-
-
-
 
 
 
