@@ -26,7 +26,8 @@ public class ShareContext extends Activity
 
     public void share(String nameApp, String imagePath)
     {
-        //mk ³eb duzy
+        int x = 0;
+        String ichuj;
         try
         {
             List<Intent> targetedShareIntents = new ArrayList<Intent>();
