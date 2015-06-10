@@ -20,14 +20,13 @@ public class ShareContext extends Activity
 
     private String nazwa;
 
-    public void setShareStrategy(ShareStrategy shareStrategy) {
+    public void setShareStrategy(ShareStrategy shareStrategy)
+    {
         this.shareStrategy = shareStrategy;
     }
 
     public void share(String nameApp, String imagePath)
     {
-        int x = 0;
-        String ichuj;
         try
         {
             List<Intent> targetedShareIntents = new ArrayList<Intent>();
@@ -37,7 +36,7 @@ public class ShareContext extends Activity
             if (!resInfo.isEmpty()){
                 for (ResolveInfo info : resInfo) {
                     Intent targetedShare = new Intent(android.content.Intent.ACTION_SEND);
-                    targetedShare.setType("image/*");
+                    targetedShare.setType("image/*"); // put here your mime type
                     if (info.activityInfo.packageName.toLowerCase().contains(nameApp) || info.activityInfo.name.toLowerCase().contains(nameApp)) {
                         targetedShare.putExtra(Intent.EXTRA_SUBJECT, "Sample Photo");
                         targetedShare.putExtra(Intent.EXTRA_TEXT,"This photo is created by App Name");
@@ -46,7 +45,7 @@ public class ShareContext extends Activity
                         targetedShareIntents.add(targetedShare);
                     }
                 }
-                Intent chooserIntent = Intent.createChooser(targetedShareIntents.remove(0), "Wybierz aplikacjê.");
+                Intent chooserIntent = Intent.createChooser(targetedShareIntents.remove(0), "Wybierz aplikacje.");
                 chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray(new Parcelable[]{}));
                 startActivity(chooserIntent);
             }
@@ -55,4 +54,5 @@ public class ShareContext extends Activity
             Log.v("VM", "Exception while sending image on" + nameApp + " " + e.getMessage());
         }
     }
-}
+    }
+

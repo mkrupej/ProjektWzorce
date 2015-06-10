@@ -181,7 +181,7 @@ public class PictureEdit extends Activity  {
                 return true;
 
             case R.id.facebook:
-                ShareContext shareContext = new ShareContext();
+                ShareContext tak = new ShareContext();
                 String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
                 OutputStream outStream = null;
                 File file = new File(extStorageDirectory, "MAIL.PNG");
@@ -193,7 +193,7 @@ public class PictureEdit extends Activity  {
                 }
                 catch(Exception e)
                 {}
-                shareContext.share("facebook", file.toString());
+                tak.share("facebook", file.toString());
 
     //sada
 //aaaaa
@@ -243,7 +243,7 @@ public class PictureEdit extends Activity  {
                         targetedShareIntents.add(targetedShare);
                     }
                 }
-                Intent chooserIntent = Intent.createChooser(targetedShareIntents.remove(0), "Wybierz aplikacjê.");
+                Intent chooserIntent = Intent.createChooser(targetedShareIntents.remove(0), "Wybierz aplikacje.");
                 chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray(new Parcelable[]{}));
                 startActivity(chooserIntent);
             }

@@ -7,8 +7,7 @@ import android.content.Intent;
  */
 public class MailStrategy extends ShareContext implements ShareStrategy
 {
-    public void share(String nazwa)
-    {
-        Intent mailIntent = getShareIntent("mail");
-    }
+    //public void share(String nazwa)
+{
+}
 }

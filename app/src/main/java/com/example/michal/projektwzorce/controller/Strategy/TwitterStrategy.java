@@ -7,8 +7,8 @@ import android.content.Intent;
  */
 public class TwitterStrategy extends ShareContext implements ShareStrategy
 {
-    public void share(String nazwa)
-    {
-        Intent twitterIntent = getShareIntent("twitter");
-    }
+   // public void share(String nazwa)
+   // {
+
+    //}
 }
