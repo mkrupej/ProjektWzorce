@@ -23,8 +23,12 @@ import android.view.MenuItem;
 
 
 import com.example.michal.projektwzorce.R;
+import com.example.michal.projektwzorce.controller.Strategy.FacebookStrategy;
+import com.example.michal.projektwzorce.controller.Strategy.MailStrategy;
 import com.example.michal.projektwzorce.controller.Strategy.ShareContext;
+import com.example.michal.projektwzorce.controller.Strategy.ShareController;
 import com.example.michal.projektwzorce.controller.Strategy.ShareStrategy;
+import com.example.michal.projektwzorce.controller.Strategy.TwitterStrategy;
 import com.example.michal.projektwzorce.controller.TemplateMethod.AbstractAlgorithm;
 import com.example.michal.projektwzorce.controller.TemplateMethod.BlackWhiteAlgorithm;
 import com.example.michal.projektwzorce.controller.TemplateMethod.BlurAlgorithm;
@@ -151,7 +155,7 @@ public class PictureEdit extends Activity  {
 
     }
 
-
+    public ShareController shareController = new ShareController();
 
 
     @Override
@@ -162,6 +166,7 @@ public class PictureEdit extends Activity  {
 
 
             case R.id.seekbar1:
+
 
                 settings();
                 Intent intent = new Intent(PictureEdit.this, Editable.class);
@@ -186,20 +191,20 @@ public class PictureEdit extends Activity  {
 
             case R.id.facebook:
 
-            sharing("facebook");
-
+                shareController.setStrategy(new FacebookStrategy());
+                sharing(shareController.setPortal());
                 return true;
 
             case R.id.sms:
 
-                sharing("twitter");
-
+                shareController.setStrategy(new TwitterStrategy());
+                sharing(shareController.setPortal());
                 return true;
 
             case R.id.mail:
 
-            sharing("gmail");
-
+                shareController.setStrategy(new MailStrategy());
+                sharing(shareController.setPortal());
                 return true;
 
             default:
