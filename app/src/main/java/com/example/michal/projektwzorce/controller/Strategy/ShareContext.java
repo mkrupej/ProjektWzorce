@@ -16,9 +16,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Krzysztof on 2015-06-10.
- */
 public class ShareContext
 {
     ShareStrategy shareStrategy;

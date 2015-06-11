@@ -176,7 +176,6 @@ public class PictureEdit extends Activity  {
 
             case R.id.zapis:
 
-                Zapis.zapis();
                 Toast.makeText(getApplicationContext(),"zapisano ", Toast.LENGTH_LONG).show();
                 MediaStore.Images.Media.insertImage(getContentResolver(), Photography.getInstance().getPhoto(), "moje foto", "zapis");
 
