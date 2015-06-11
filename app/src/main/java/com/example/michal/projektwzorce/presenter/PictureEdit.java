@@ -34,7 +34,6 @@ import com.example.michal.projektwzorce.controller.TemplateMethod.BlackWhiteAlgo
 import com.example.michal.projektwzorce.controller.TemplateMethod.BlurAlgorithm;
 import com.example.michal.projektwzorce.controller.TemplateMethod.NegatywAlgoritthm;
 import com.example.michal.projektwzorce.controller.TemplateMethod.SepiaAlgoritm;
-import com.example.michal.projektwzorce.controller.Zapis;
 import com.example.michal.projektwzorce.model.Photography;
 
 import java.io.File;
