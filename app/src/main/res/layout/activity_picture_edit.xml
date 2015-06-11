@@ -72,8 +72,5 @@
         android:padding="0dp"
 
       />
-
 </RelativeLayout>
-
-
 </LinearLayout>

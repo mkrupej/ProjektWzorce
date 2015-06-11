@@ -37,18 +37,17 @@ public class ChoiceActivity extends Activity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choice);
         getActionBar().hide();
 
 
-
-
         takePicture = (ImageView)findViewById(R.id.imageCameraChoice);
 
-       takePicture.setOnClickListener(new View.OnClickListener() {
+       takePicture.setOnClickListener(new View.OnClickListener()
+       {
            public void onClick(View arg0) {
                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                startActivityForResult(cameraIntent, TAKE_PICTURE);
@@ -56,7 +55,8 @@ public class ChoiceActivity extends Activity {
        });
 
         getGallery = (ImageView)findViewById(R.id.imageGalleryChoice);
-        getGallery.setOnClickListener(new View.OnClickListener() {
+        getGallery.setOnClickListener(new View.OnClickListener()
+        {
             public void onClick(View arg0) {
                 Intent intent = new Intent();
                 intent.setType("image/*");
